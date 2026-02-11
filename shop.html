@@ -5,22 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop - Pure Honey</title>
   <style>
-    body{font-family:'Segoe UI',sans-serif;margin:0;background:#fffaf0;}
-    nav{background:linear-gradient(90deg,#d2691e,#8b4513);padding:15px;text-align:center;}
-    nav a{color:white;margin:0 20px;text-decoration:none;font-weight:bold;}
+    :root{--primary:#d2691e;--dark:#8b4513;--light:#fffaf0;--text:#333;}
+    body{font-family:'Segoe UI',sans-serif;margin:0;background:var(--light);color:var(--text);}
+    nav{background:linear-gradient(90deg,var(--primary),var(--dark));padding:16px 0;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+    nav a{color:white;margin:0 24px;text-decoration:none;font-weight:600;font-size:1.15em;}
     nav a:hover{color:#ffd700;}
-    h1{text-align:center;color:#8b4513;padding:40px 0;}
-    table{width:90%;max-width:1000px;margin:20px auto;border-collapse:collapse;background:white;box-shadow:0 8px 20px rgba(0,0,0,0.1);}
-    th,td{padding:18px;text-align:center;border-bottom:1px solid #eee;vertical-align:middle;}
-    th{background:#d2691e;color:white;}
-    .buy-btn{background:#8b4513;color:white;padding:12px 24px;border:none;border-radius:6px;cursor:pointer;font-size:1.1em;}
-    .buy-btn:hover{background:#a0522d;}
-    .product-img{width:120px;height:120px;object-fit:cover;border-radius:8px;}
+    h1{text-align:center;color:var(--dark);padding:80px 20px 40px;font-size:3em;margin:0;}
+    table{width:90%;max-width:1200px;margin:0 auto 80px;border-collapse:collapse;background:white;box-shadow:0 8px 24px rgba(0,0,0,0.1);}
+    th,td{padding:20px;text-align:center;border-bottom:1px solid #eee;vertical-align:middle;}
+    th{background:var(--primary);color:white;font-size:1.2em;}
+    .buy-btn{background:var(--primary);color:white;padding:12px 28px;border:none;border-radius:8px;cursor:pointer;font-size:1.1em;transition:0.2s;}
+    .buy-btn:hover{background:var(--dark);}
+    .product-img{width:110px;height:110px;object-fit:cover;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   </style>
 </head>
 <body>
-  <nav><a href="/">Home</a><a href="product.html">Products</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a></nav>
+  <nav>
+    <a href="/">Home</a>
+    <a href="product.html">Products</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <h1>Shop Our Honey</h1>
+
   <table>
     <tr><th>Photo</th><th>Product</th><th>Size</th><th>Price</th><th>Action</th></tr>
     <tr>
@@ -34,7 +42,7 @@
       <td><a href="payment.html?item=Manuka Honey 250g&price=38" class="buy-btn">Buy Now</a></td>
     </tr>
     <tr>
-      <td><img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=200" class="product-img" alt="Acacia"></td>
+      <td><img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=200" class="product-img" alt="Acacia"></td>
       <td>Acacia Honey</td><td>1kg</td><td>USD 24</td>
       <td><a href="payment.html?item=Acacia Honey 1kg&price=24" class="buy-btn">Buy Now</a></td>
     </tr>

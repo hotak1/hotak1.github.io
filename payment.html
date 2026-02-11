@@ -5,17 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Choose Payment Method</title>
   <style>
-    body{font-family:'Segoe UI',sans-serif;margin:0;background:#fffaf0;}
-    nav{background:linear-gradient(90deg,#d2691e,#8b4513);padding:15px;text-align:center;}
-    nav a{color:white;margin:0 20px;text-decoration:none;font-weight:bold;}
-    .payment-page{max-width:600px;margin:80px auto;padding:40px;background:white;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.15);text-align:center;}
-    h1,h2{color:#8b4513;}
-    .payment-btn{display:block;width:80%;margin:20px auto;padding:16px;font-size:1.2em;background:#d2691e;color:white;border:none;border-radius:8px;cursor:pointer;}
-    .payment-btn:hover{background:#b34a00;}
-    #qr-section{margin:40px 0;}
-    #dynamic-qr{width:250px;height:250px;}
-    #timer{font-size:1.1em;font-weight:bold;color:#d2691e;margin:10px 0;}
-    .note{color:#555;font-size:0.95em;}
+    :root{--primary:#d2691e;--dark:#8b4513;--light:#fffaf0;--text:#333;}
+    body{font-family:'Segoe UI',sans-serif;margin:0;background:var(--light);color:var(--text);}
+    nav{background:linear-gradient(90deg,var(--primary),var(--dark));padding:16px 0;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+    nav a{color:white;margin:0 24px;text-decoration:none;font-weight:600;font-size:1.15em;}
+    nav a:hover{color:#ffd700;}
+    .payment-page{max-width:640px;margin:60px auto;padding:50px 40px;background:white;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.15);text-align:center;}
+    h1{margin:0 0 12px;color:var(--dark);font-size:2.4em;}
+    h2{margin:0 0 30px;color:var(--primary);font-size:1.5em;}
+    .payment-btn{display:block;width:100%;max-width:380px;margin:18px auto;padding:16px;font-size:1.3em;background:var(--primary);color:white;border:none;border-radius:10px;cursor:pointer;transition:0.2s;}
+    .payment-btn:hover{background:var(--dark);transform:translateY(-2px);}
+    #qr-section{margin:50px 0 30px;}
+    #dynamic-qr{width:280px;height:280px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.12);}
+    #timer{font-size:1.2em;font-weight:600;color:var(--primary);margin:15px 0;}
+    .note{color:#666;font-size:1em;line-height:1.6;}
   </style>
 </head>
 <body>
@@ -30,10 +33,8 @@
       <h3>WeChat Pay / Alipay / FPS / PayMe</h3>
       <img id="dynamic-qr" src="" alt="QR Code">
       <div id="timer">Next refresh in 30 seconds</div>
-      <p class="note">QR refreshes every 30 seconds</p>
+      <p class="note">QR refreshes every 30 seconds<br>Scan to pay • Contact us after payment</p>
     </div>
-
-    <p class="note">Scan QR to pay. Contact us after payment.</p>
   </div>
 
   <script>
@@ -52,14 +53,13 @@
 
     function updateTimer() {
       timerElement.textContent = `Next refresh in ${countdown} seconds`;
-      if (countdown > 0) countdown--;
-      else countdown = 30;
+      countdown = countdown > 0 ? countdown - 1 : 30;
     }
 
     function refreshQR() {
       const random = Date.now();
       const qrData = `hotak.patty@gmail.com|${random}|${item}|${price}`;
-      const url = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(qrData)}&t=${random}`;
+      const url = `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(qrData)}&t=${random}`;
       document.getElementById('dynamic-qr').src = url;
       countdown = 30;
       updateTimer();
@@ -67,7 +67,6 @@
 
     setInterval(refreshQR, 30000);
     setInterval(updateTimer, 1000);
-
     refreshQR();
     updateTimer();
   </script>
