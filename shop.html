@@ -11,20 +11,33 @@
     nav a:hover{color:#ffd700;}
     h1{text-align:center;color:#8b4513;padding:40px 0;}
     table{width:90%;max-width:1000px;margin:20px auto;border-collapse:collapse;background:white;box-shadow:0 8px 20px rgba(0,0,0,0.1);}
-    th,td{padding:18px;text-align:center;border-bottom:1px solid #eee;}
+    th,td{padding:18px;text-align:center;border-bottom:1px solid #eee;vertical-align:middle;}
     th{background:#d2691e;color:white;}
     .buy-btn{background:#8b4513;color:white;padding:12px 24px;border:none;border-radius:6px;cursor:pointer;font-size:1.1em;}
     .buy-btn:hover{background:#a0522d;}
+    .product-img{width:120px;height:120px;object-fit:cover;border-radius:8px;}
   </style>
 </head>
 <body>
   <nav><a href="/">Home</a><a href="product.html">Products</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a></nav>
   <h1>Shop Our Honey</h1>
   <table>
-    <tr><th>Product</th><th>Size</th><th>Price</th><th>Action</th></tr>
-    <tr><td>Wildflower Honey</td><td>500g</td><td>USD 12</td><td><a href="payment.html?item=Wildflower Honey 500g&price=12" class="buy-btn">Buy Now</a></td></tr>
-    <tr><td>Manuka Honey (MGO 400+)</td><td>250g</td><td>USD 38</td><td><a href="payment.html?item=Manuka Honey 250g&price=38" class="buy-btn">Buy Now</a></td></tr>
-    <tr><td>Acacia Honey</td><td>1kg</td><td>USD 24</td><td><a href="payment.html?item=Acacia Honey 1kg&price=24" class="buy-btn">Buy Now</a></td></tr>
+    <tr><th>Photo</th><th>Product</th><th>Size</th><th>Price</th><th>Action</th></tr>
+    <tr>
+      <td><img src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=200" class="product-img" alt="Wildflower"></td>
+      <td>Wildflower Honey</td><td>500g</td><td>USD 12</td>
+      <td><a href="payment.html?item=Wildflower Honey 500g&price=12" class="buy-btn">Buy Now</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://images.unsplash.com/photo-1602598938378-0c8f2c3c5d7d?w=200" class="product-img" alt="Manuka"></td>
+      <td>Manuka Honey (MGO 400+)</td><td>250g</td><td>USD 38</td>
+      <td><a href="payment.html?item=Manuka Honey 250g&price=38" class="buy-btn">Buy Now</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://images.unsplash.com/photo-1589139744468-8d3e8f4a8d4c?w=200" class="product-img" alt="Acacia"></td>
+      <td>Acacia Honey</td><td>1kg</td><td>USD 24</td>
+      <td><a href="payment.html?item=Acacia Honey 1kg&price=24" class="buy-btn">Buy Now</a></td>
+    </tr>
   </table>
 </body>
 </html>

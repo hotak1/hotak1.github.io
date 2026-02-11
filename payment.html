@@ -48,8 +48,8 @@
     function refreshQR() {
       const random = Date.now();
       const qrData = `hotak.patty@gmail.com|${random}|${item}|${price}`;
-      document.getElementById('dynamic-qr').src = 
-        `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(qrData)}`;
+      const url = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(qrData)}&t=${random}`;
+      document.getElementById('dynamic-qr').src = url;
     }
 
     setInterval(refreshQR, 30000);
