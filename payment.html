@@ -12,7 +12,9 @@
     h1,h2{color:#8b4513;}
     .payment-btn{display:block;width:80%;margin:20px auto;padding:16px;font-size:1.2em;background:#d2691e;color:white;border:none;border-radius:8px;cursor:pointer;}
     .payment-btn:hover{background:#b34a00;}
-    .note{color:#555;font-size:0.95em;margin-top:30px;}
+    #qr-section{margin:40px 0;}
+    #dynamic-qr{width:250px;height:250px;}
+    .note{color:#555;font-size:0.95em;}
   </style>
 </head>
 <body>
@@ -20,13 +22,18 @@
   <div class="payment-page">
     <h1>Choose Payment Method</h1>
     <h2 id="item-info"></h2>
+
     <button class="payment-btn" onclick="goToPayPal()">PayPal</button>
-    <button class="payment-btn" onclick="contactUs()">WeChat Pay</button>
-    <button class="payment-btn" onclick="contactUs()">Alipay</button>
-    <button class="payment-btn" onclick="contactUs()">HK FPS</button>
-    <button class="payment-btn" onclick="contactUs()">PayMe</button>
-    <p class="note">For WeChat Pay, Alipay, FPS, PayMe: please contact us after choosing.</p>
+
+    <div id="qr-section">
+      <h3>WeChat Pay / Alipay / FPS / PayMe</h3>
+      <img id="dynamic-qr" src="" alt="QR Code">
+      <p class="note">QR refreshes every 30 seconds</p>
+    </div>
+
+    <p class="note">Scan QR to pay. Contact us after payment.</p>
   </div>
+
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const item = urlParams.get('item') || 'Item';
@@ -38,10 +45,15 @@
       window.location.href = paypalUrl;
     }
 
-    function contactUs() {
-      alert("Please contact us via email or phone for WeChat Pay, Alipay, FPS, or PayMe payment.");
-      window.location.href = "contact.html";
+    function refreshQR() {
+      const random = Date.now();
+      const qrData = `hotak.patty@gmail.com|${random}|${item}|${price}`;
+      document.getElementById('dynamic-qr').src = 
+        `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(qrData)}`;
     }
+
+    setInterval(refreshQR, 30000);
+    refreshQR();
   </script>
 </body>
 </html>
