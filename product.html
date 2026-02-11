@@ -7,11 +7,13 @@
   <style>
     :root{--primary:#d2691e;--dark:#8b4513;--light:#fffaf0;--text:#333;}
     body{font-family:'Segoe UI',sans-serif;margin:0;background:var(--light);color:var(--text);}
-    nav{background:linear-gradient(90deg,var(--primary),var(--dark));padding:16px 0;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-    nav a{color:white;margin:0 24px;text-decoration:none;font-weight:600;font-size:1.15em;}
+    nav{background:linear-gradient(90deg,var(--primary),var(--dark));padding:18px 0;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+    nav a{color:white;margin:0 28px;text-decoration:none;font-weight:600;font-size:1.18em;}
     nav a:hover{color:#ffd700;}
-    h1{text-align:center;color:var(--dark);padding:80px 20px 40px;font-size:3.2em;margin:0;}
-    .gallery{max-width:1200px;margin:0 auto 100px;padding:0 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px;}
+    header{background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=1600') center/cover no-repeat;color:white;text-align:center;padding:200px 20px;}
+    header h1{font-size:4.5em;margin:0 0 16px;font-weight:700;}
+    header p{font-size:1.7em;margin:0;}
+    .gallery{max-width:1200px;margin:60px auto;padding:0 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px;}
     .card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.1);text-align:center;}
     .card img{width:100%;height:280px;object-fit:cover;}
     .card h3{color:var(--primary);font-size:1.7em;margin:24px 0 12px;}
@@ -26,23 +28,26 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <h1>Our Honey Collection</h1>
+  <header>
+    <h1>Our Honey Collection</h1>
+    <p>Discover pure, raw varieties</p>
+  </header>
 
   <div class="gallery">
     <div class="card">
       <img src="https://images.pexels.com/photos/139746/pexels-photo-139746.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Wildflower">
       <h3>Wildflower Honey</h3>
-      <p>Rich, floral, multi-flower blend — perfect everyday honey.</p>
+      <p>Rich, floral, multi-flower blend</p>
     </div>
     <div class="card">
       <img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Manuka">
       <h3>Manuka Honey (MGO 400+)</h3>
-      <p>Premium grade, powerful antibacterial properties.</p>
+      <p>Premium grade, antibacterial</p>
     </div>
     <div class="card">
       <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Acacia">
       <h3>Acacia Honey</h3>
-      <p>Crystal clear, mild, slow to crystallize.</p>
+      <p>Crystal clear, mild taste</p>
     </div>
   </div>
 </body>

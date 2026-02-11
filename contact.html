@@ -7,11 +7,13 @@
   <style>
     :root{--primary:#d2691e;--dark:#8b4513;--light:#fffaf0;--text:#333;}
     body{font-family:'Segoe UI',sans-serif;margin:0;background:var(--light);color:var(--text);}
-    nav{background:linear-gradient(90deg,var(--primary),var(--dark));padding:16px 0;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-    nav a{color:white;margin:0 24px;text-decoration:none;font-weight:600;font-size:1.15em;}
+    nav{background:linear-gradient(90deg,var(--primary),var(--dark));padding:18px 0;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+    nav a{color:white;margin:0 28px;text-decoration:none;font-weight:600;font-size:1.18em;}
     nav a:hover{color:#ffd700;}
-    h1{text-align:center;color:var(--dark);padding:100px 20px 40px;font-size:3.2em;margin:0;}
-    .container{max-width:700px;margin:0 auto;padding:0 30px;}
+    header{background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=1600') center/cover no-repeat;color:white;text-align:center;padding:200px 20px;}
+    header h1{font-size:4.5em;margin:0 0 16px;font-weight:700;}
+    header p{font-size:1.7em;margin:0;}
+    .container{max-width:700px;margin:60px auto;padding:0 30px;}
     .info{background:white;padding:40px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08);margin-bottom:50px;text-align:center;}
     .info p{margin:16px 0;font-size:1.1em;}
     form{background:white;padding:40px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08);}
@@ -29,7 +31,10 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <h1>Get in Touch</h1>
+  <header>
+    <h1>Get in Touch</h1>
+    <p>We’d love to hear from you</p>
+  </header>
 
   <div class="container">
     <div class="info">
