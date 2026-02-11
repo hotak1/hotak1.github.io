@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Payment Method</title>
+  <style>
+    body{font-family:'Segoe UI',sans-serif;margin:0;background:#fffaf0;}
+    nav{background:linear-gradient(90deg,#d2691e,#8b4513);padding:15px;text-align:center;}
+    nav a{color:white;margin:0 20px;text-decoration:none;font-weight:bold;}
+    .payment-page{max-width:600px;margin:80px auto;padding:40px;background:white;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.15);text-align:center;}
+    h1,h2{color:#8b4513;}
+    .payment-btn{display:block;width:80%;margin:20px auto;padding:16px;font-size:1.2em;background:#d2691e;color:white;border:none;border-radius:8px;cursor:pointer;}
+    .payment-btn:hover{background:#b34a00;}
+    .note{color:#555;font-size:0.95em;margin-top:30px;}
+  </style>
+</head>
+<body>
+  <nav><a href="shop.html">← Back to Shop</a></nav>
+  <div class="payment-page">
+    <h1>Choose Payment Method</h1>
+    <h2 id="item-info"></h2>
+    <button class="payment-btn" onclick="goToPayPal()">PayPal</button>
+    <button class="payment-btn" onclick="contactUs()">WeChat Pay</button>
+    <button class="payment-btn" onclick="contactUs()">Alipay</button>
+    <button class="payment-btn" onclick="contactUs()">HK FPS</button>
+    <button class="payment-btn" onclick="contactUs()">PayMe</button>
+    <p class="note">For WeChat Pay, Alipay, FPS, PayMe: please contact us after choosing.</p>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const item = urlParams.get('item') || 'Item';
+    const price = urlParams.get('price') || '0';
+    document.getElementById('item-info').textContent = `${item} - USD $${price}`;
+
+    function goToPayPal() {
+      const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=hotak.patty@gmail.com&item_name=${encodeURIComponent(item)}&amount=${price}&currency_code=USD`;
+      window.location.href = paypalUrl;
+    }
+
+    function contactUs() {
+      alert("Please contact us via email or phone for WeChat Pay, Alipay, FPS, or PayMe payment.");
+      window.location.href = "contact.html";
+    }
+  </script>
+</body>
+</html>

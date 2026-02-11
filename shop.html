@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop - Pure Honey</title>
   <style>
     body{font-family:'Segoe UI',sans-serif;margin:0;background:#fffaf0;}
@@ -9,10 +10,10 @@
     nav a{color:white;margin:0 20px;text-decoration:none;font-weight:bold;}
     nav a:hover{color:#ffd700;}
     h1{text-align:center;color:#8b4513;padding:40px 0;}
-    table{width:90%;max-width:1000px;margin:0 auto 40px;border-collapse:collapse;background:white;box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+    table{width:90%;max-width:1000px;margin:20px auto;border-collapse:collapse;background:white;box-shadow:0 8px 20px rgba(0,0,0,0.1);}
     th,td{padding:18px;text-align:center;border-bottom:1px solid #eee;}
     th{background:#d2691e;color:white;}
-    .buy-btn{background:#8b4513;color:white;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;}
+    .buy-btn{background:#8b4513;color:white;padding:12px 24px;border:none;border-radius:6px;cursor:pointer;font-size:1.1em;}
     .buy-btn:hover{background:#a0522d;}
   </style>
 </head>
@@ -21,28 +22,9 @@
   <h1>Shop Our Honey</h1>
   <table>
     <tr><th>Product</th><th>Size</th><th>Price</th><th>Action</th></tr>
-    <tr><td>Wildflower Honey</td><td>500g</td><td>USD 12</td><td><button class="buy-btn" onclick="showPaymentPopup('Wildflower Honey 500g',12)">Buy Now</button></td></tr>
-    <tr><td>Manuka Honey (MGO 400+)</td><td>250g</td><td>USD 38</td><td><button class="buy-btn" onclick="showPaymentPopup('Manuka Honey 250g',38)">Buy Now</button></td></tr>
-    <tr><td>Acacia Honey</td><td>1kg</td><td>USD 24</td><td><button class="buy-btn" onclick="showPaymentPopup('Acacia Honey 1kg',24)">Buy Now</button></td></tr>
+    <tr><td>Wildflower Honey</td><td>500g</td><td>USD 12</td><td><a href="payment.html?item=Wildflower Honey 500g&price=12" class="buy-btn">Buy Now</a></td></tr>
+    <tr><td>Manuka Honey (MGO 400+)</td><td>250g</td><td>USD 38</td><td><a href="payment.html?item=Manuka Honey 250g&price=38" class="buy-btn">Buy Now</a></td></tr>
+    <tr><td>Acacia Honey</td><td>1kg</td><td>USD 24</td><td><a href="payment.html?item=Acacia Honey 1kg&price=24" class="buy-btn">Buy Now</a></td></tr>
   </table>
-
-  <script>
-  function showPaymentPopup(name, price) {
-    const popup = window.open('', 'Payment', 'width=400,height=320,top=100,left=200');
-    popup.document.write(`
-      <html><head><title>Choose Payment</title>
-      <style>body{font-family:Arial;text-align:center;padding:30px;background:#fffaf0;}
-      h3{color:#8b4513;} button{background:#d2691e;color:white;padding:12px 24px;margin:10px;border:none;border-radius:6px;cursor:pointer;font-size:1em;}
-      button:hover{background:#b34a00;}</style></head>
-      <body><h3>Pay for ${name} - $${price.toFixed(2)}</h3>
-      <p>Choose method:</p>
-      <button onclick="location='https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=YOUR_PAYPAL_EMAIL&item_name=${encodeURIComponent(name)}&amount=${price}&currency_code=USD';close()">PayPal</button>
-      <button onclick="alert('Contact us for PayMe/FPS/AlipayHK/WeChat Pay HK');close()">Local HK</button>
-      <button onclick="alert('Contact us for Credit Card');close()">Credit Card</button>
-      <br><br><button onclick="close()">Cancel</button></body></html>
-    `);
-    popup.document.close();
-  }
-  </script>
 </body>
 </html>
