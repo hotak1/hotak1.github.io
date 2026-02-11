@@ -12,54 +12,72 @@
     table{width:90%;max-width:1000px;margin:0 auto 40px;border-collapse:collapse;background:white;box-shadow:0 8px 20px rgba(0,0,0,0.1);}
     th,td{padding:18px;text-align:center;border-bottom:1px solid #eee;}
     th{background:#d2691e;color:white;}
-    .buy-btn{background:#8b4513;color:white;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;}
+    .buy-btn{background:#8b4513;color:white;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;margin:4px;}
     .buy-btn:hover{background:#a0522d;}
+    .payment-options{text-align:center;margin:20px 0;}
+    .qr-note{font-size:0.9em;color:#555;}
   </style>
 </head>
 <body>
   <nav><a href="/">Home</a><a href="product.html">Products</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a></nav>
   <h1>Shop Our Honey</h1>
   <table>
-    <tr><th>Product</th><th>Size</th><th>Price</th><th>Pay with PayPal</th></tr>
+    <tr><th>Product</th><th>Size</th><th>Price</th><th>Pay with</th></tr>
     <tr>
-      <td>Wildflower Honey</td><td>500g</td><td>USD 12</td>
+      <td>Wildflower Honey</td><td>500g</td><td>USD 12 / HKD 94 / CNY 86</td>
       <td>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
-          <input type="hidden" name="item_name" value="Wildflower Honey 500g">
-          <input type="hidden" name="amount" value="12.00">
-          <input type="hidden" name="currency_code" value="USD">
-          <input type="submit" value="Buy $12" class="buy-btn">
-        </form>
+        <div class="payment-options">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display:inline;">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
+            <input type="hidden" name="item_name" value="Wildflower Honey 500g">
+            <input type="hidden" name="amount" value="12.00">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="submit" value="PayPal (USD)" class="buy-btn">
+          </form>
+          <p class="qr-note">PayMe / FPS / AlipayHK / WeChat Pay HK / Credit Card → contact us</p>
+        </div>
       </td>
     </tr>
     <tr>
-      <td>Manuka Honey (MGO 400+)</td><td>250g</td><td>USD 38</td>
+      <td>Manuka Honey (MGO 400+)</td><td>250g</td><td>USD 38 / HKD 296 / CNY 272</td>
       <td>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
-          <input type="hidden" name="item_name" value="Manuka Honey 250g">
-          <input type="hidden" name="amount" value="38.00">
-          <input type="hidden" name="currency_code" value="USD">
-          <input type="submit" value="Buy $38" class="buy-btn">
-        </form>
+        <div class="payment-options">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display:inline;">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
+            <input type="hidden" name="item_name" value="Manuka Honey 250g">
+            <input type="hidden" name="amount" value="38.00">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="submit" value="PayPal (USD)" class="buy-btn">
+          </form>
+          <p class="qr-note">PayMe / FPS / AlipayHK / WeChat Pay HK / Credit Card → contact us</p>
+        </div>
       </td>
     </tr>
     <tr>
-      <td>Acacia Honey</td><td>1kg</td><td>USD 24</td>
+      <td>Acacia Honey</td><td>1kg</td><td>USD 24 / HKD 187 / CNY 172</td>
       <td>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
-          <input type="hidden" name="item_name" value="Acacia Honey 1kg">
-          <input type="hidden" name="amount" value="24.00">
-          <input type="hidden" name="currency_code" value="USD">
-          <input type="submit" value="Buy $24" class="buy-btn">
-        </form>
+        <div class="payment-options">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display:inline;">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
+            <input type="hidden" name="item_name" value="Acacia Honey 1kg">
+            <input type="hidden" name="amount" value="24.00">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="submit" value="PayPal (USD)" class="buy-btn">
+          </form>
+          <p class="qr-note">PayMe / FPS / AlipayHK / WeChat Pay HK / Credit Card → contact us</p>
+        </div>
       </td>
     </tr>
   </table>
+
+  <div style="text-align:center;margin:40px;">
+    <h3>Local HK Payments</h3>
+    <p>PayMe / FPS / AlipayHK / WeChat Pay HK</p>
+    <img src="https://via.placeholder.com/250x250?text=Your+QR+Code" alt="Payment QR" style="width:250px;margin:20px;">
+    <p>Contact us after payment</p>
+  </div>
 </body>
 </html>
