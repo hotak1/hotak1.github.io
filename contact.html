@@ -1,1 +1,47 @@
-<!DOCTYPE html><html lang="en"><head><title>Contact</title><style>body{font-family:Arial;}nav a{margin:10px;}</style></head><body><nav><a href="/">Home</a><a href="product.html">Products</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a></nav><h1>Contact Us</h1><p>Phone: +123456789</p><p>Address: 123 Honey Lane, Bee City</p><form action="mailto:hotak.patty@gmail.com" method="post" enctype="text/plain"><label>Name:</label><input type="text" name="name"><br><label>Email:</label><input type="email" name="email"><br><label>Message:</label><textarea name="message"></textarea><br><input type="submit" value="Send"></form></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Pure Honey</title>
+  <style>
+    body {font-family:'Segoe UI',sans-serif; margin:0; background:#fffaf0;}
+    nav {background:linear-gradient(90deg, #d2691e, #8b4513); padding:15px; text-align:center;}
+    nav a {color:white; margin:0 20px; text-decoration:none; font-weight:bold;}
+    nav a:hover {color:#ffd700;}
+    h1 {text-align:center; color:#8b4513; padding:60px 0 20px;}
+    .container {max-width:700px; margin:0 auto; padding:0 20px;}
+    .info {background:white; padding:30px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); margin-bottom:40px;}
+    form {background:white; padding:30px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+    label {display:block; margin:15px 0 5px; font-weight:bold;}
+    input, textarea {width:100%; padding:12px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box;}
+    button {background:#d2691e; color:white; padding:14px 30px; border:none; border-radius:30px; font-weight:bold; margin-top:20px; cursor:pointer;}
+    button:hover {background:#b34a00;}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="product.html">Products</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <h1>Get in Touch</h1>
+  <div class="container">
+    <div class="info">
+      <p><strong>Phone:</strong> +852 9876 5432</p>
+      <p><strong>Address:</strong> 88 Blossom Road, Honey District, Hong Kong</p>
+      <p><strong>Email:</strong> hotak.patty@gmail.com</p>
+    </div>
+    <form action="mailto:hotak.patty@gmail.com" method="post" enctype="text/plain">
+      <label>Name</label>
+      <input type="text" name="name" required>
+      <label>Email</label>
+      <input type="email" name="email" required>
+      <label>Message</label>
+      <textarea name="message" rows="6" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</body>
+</html>
