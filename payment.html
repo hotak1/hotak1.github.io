@@ -7,18 +7,23 @@
   <style>
     :root{--primary:#d2691e;--dark:#8b4513;--light:#fffaf0;--text:#333;}
     body{font-family:'Segoe UI',sans-serif;margin:0;background:var(--light);color:var(--text);}
-    nav{background:linear-gradient(90deg,var(--primary),var(--dark));padding:18px 0;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
-    nav a{color:white;margin:0 28px;text-decoration:none;font-weight:600;font-size:1.18em;}
+    nav{background:linear-gradient(90deg,var(--primary),var(--dark));padding:14px 0;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+    nav a{color:white;margin:0 14px;font-size:1em;text-decoration:none;font-weight:600;}
     nav a:hover{color:#ffd700;}
-    .payment-page{max-width:640px;margin:60px auto;padding:50px 40px;background:white;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.15);text-align:center;}
-    h1{margin:0 0 12px;color:var(--dark);font-size:2.4em;}
-    h2{margin:0 0 30px;color:var(--primary);font-size:1.5em;}
-    .payment-btn{display:block;width:100%;max-width:380px;margin:18px auto;padding:16px;font-size:1.3em;background:var(--primary);color:white;border:none;border-radius:10px;cursor:pointer;transition:0.2s;}
-    .payment-btn:hover{background:var(--dark);transform:translateY(-2px);}
-    #qr-section{margin:50px 0 30px;}
-    #dynamic-qr{width:280px;height:280px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.12);}
-    #timer{font-size:1.2em;font-weight:600;color:var(--primary);margin:15px 0;}
-    .note{color:#666;font-size:1em;line-height:1.6;}
+    .payment-page{max-width:90%;margin:40px auto;padding:30px 20px;background:white;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);text-align:center;}
+    h1{margin:0 0 12px;color:var(--dark);font-size:2.2em;}
+    h2{margin:0 0 20px;color:var(--primary);font-size:1.4em;}
+    .payment-btn{width:100%;margin:12px 0;padding:14px;font-size:1.2em;background:var(--primary);color:white;border:none;border-radius:8px;cursor:pointer;}
+    .payment-btn:hover{background:var(--dark);}
+    #qr-section{margin:30px 0;}
+    #dynamic-qr{width:240px;height:240px;border-radius:10px;margin:0 auto;display:block;}
+    #timer{font-size:1.1em;font-weight:600;color:var(--primary);margin:10px 0;}
+    .note{color:#666;font-size:0.95em;}
+    @media (max-width:600px){
+      .payment-page{padding:20px 12px;}
+      h1{font-size:1.9em;}
+      #dynamic-qr{width:220px;height:220px;}
+    }
   </style>
 </head>
 <body>
@@ -59,7 +64,7 @@
     function refreshQR() {
       const random = Date.now();
       const qrData = `hotak.patty@gmail.com|${random}|${item}|${price}`;
-      const url = `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(qrData)}&t=${random}`;
+      const url = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(qrData)}&t=${random}`;
       document.getElementById('dynamic-qr').src = url;
       countdown = 30;
       updateTimer();
