@@ -14,49 +14,52 @@
     th{background:#d2691e;color:white;}
     .buy-btn{background:#8b4513;color:white;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;}
     .buy-btn:hover{background:#a0522d;}
-    #cart{max-width:1000px;margin:0 auto;padding:20px;background:white;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.1);}
-    #cart h2{color:#8b4513;}
-    .cart-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee;}
-    #total{font-weight:bold;font-size:1.2em;margin-top:20px;}
   </style>
 </head>
 <body>
   <nav><a href="/">Home</a><a href="product.html">Products</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a></nav>
   <h1>Shop Our Honey</h1>
   <table>
-    <tr><th>Product</th><th>Size</th><th>Price</th><th>Action</th></tr>
-    <tr><td>Wildflower Honey</td><td>500g</td><td>$12</td><td><button class="buy-btn" onclick="addToCart('Wildflower Honey 500g',12)">Add to Cart</button></td></tr>
-    <tr><td>Manuka Honey (MGO 400+)</td><td>250g</td><td>$38</td><td><button class="buy-btn" onclick="addToCart('Manuka Honey 250g',38)">Add to Cart</button></td></tr>
-    <tr><td>Acacia Honey</td><td>1kg</td><td>$24</td><td><button class="buy-btn" onclick="addToCart('Acacia Honey 1kg',24)">Add to Cart</button></td></tr>
+    <tr><th>Product</th><th>Size</th><th>Price</th><th>Pay with PayPal</th></tr>
+    <tr>
+      <td>Wildflower Honey</td><td>500g</td><td>USD 12</td>
+      <td>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
+          <input type="hidden" name="item_name" value="Wildflower Honey 500g">
+          <input type="hidden" name="amount" value="12.00">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="submit" value="Buy $12" class="buy-btn">
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>Manuka Honey (MGO 400+)</td><td>250g</td><td>USD 38</td>
+      <td>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
+          <input type="hidden" name="item_name" value="Manuka Honey 250g">
+          <input type="hidden" name="amount" value="38.00">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="submit" value="Buy $38" class="buy-btn">
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>Acacia Honey</td><td>1kg</td><td>USD 24</td>
+      <td>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
+          <input type="hidden" name="item_name" value="Acacia Honey 1kg">
+          <input type="hidden" name="amount" value="24.00">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="submit" value="Buy $24" class="buy-btn">
+        </form>
+      </td>
+    </tr>
   </table>
-  <div id="cart">
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <div id="total">Total: $0.00</div>
-  </div>
-  <script>
-    let cart=JSON.parse(localStorage.getItem('cart'))||[];
-    function addToCart(name,price){
-      let item=cart.find(i=>i.name===name);
-      if(item)item.quantity+=1;
-      else cart.push({name,price,quantity:1});
-      localStorage.setItem('cart',JSON.stringify(cart));
-      renderCart();
-    }
-    function renderCart(){
-      let itemsDiv=document.getElementById('cart-items');
-      itemsDiv.innerHTML='';
-      let total=0;
-      cart.forEach(i=>{
-        total+=i.price*i.quantity;
-        let div=document.createElement('div');
-        div.className='cart-item';
-        div.innerHTML=`<span>${i.name} × ${i.quantity}</span><span>$${(i.price*i.quantity).toFixed(2)}</span>`;
-        itemsDiv.appendChild(div);
-      });
-      document.getElementById('total').textContent=`Total: $${total.toFixed(2)}`;
-    }
-    renderCart();
-  </script>
 </body>
 </html>
