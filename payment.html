@@ -14,6 +14,7 @@
     .payment-btn:hover{background:#b34a00;}
     #qr-section{margin:40px 0;}
     #dynamic-qr{width:250px;height:250px;}
+    #timer{font-size:1.1em;font-weight:bold;color:#d2691e;margin:10px 0;}
     .note{color:#555;font-size:0.95em;}
   </style>
 </head>
@@ -28,6 +29,7 @@
     <div id="qr-section">
       <h3>WeChat Pay / Alipay / FPS / PayMe</h3>
       <img id="dynamic-qr" src="" alt="QR Code">
+      <div id="timer">Next refresh in 30 seconds</div>
       <p class="note">QR refreshes every 30 seconds</p>
     </div>
 
@@ -45,15 +47,29 @@
       window.location.href = paypalUrl;
     }
 
+    let countdown = 30;
+    const timerElement = document.getElementById('timer');
+
+    function updateTimer() {
+      timerElement.textContent = `Next refresh in ${countdown} seconds`;
+      if (countdown > 0) countdown--;
+      else countdown = 30;
+    }
+
     function refreshQR() {
       const random = Date.now();
       const qrData = `hotak.patty@gmail.com|${random}|${item}|${price}`;
       const url = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(qrData)}&t=${random}`;
       document.getElementById('dynamic-qr').src = url;
+      countdown = 30;
+      updateTimer();
     }
 
     setInterval(refreshQR, 30000);
+    setInterval(updateTimer, 1000);
+
     refreshQR();
+    updateTimer();
   </script>
 </body>
 </html>
