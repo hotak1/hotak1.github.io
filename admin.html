@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Manager | Corporate Site</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">Enterprise</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="admin.html" class="active">Dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h1>Content Management Portal</h1>
+      <p>Publish new announcements, blog updates, or resource media directly to the site.</p>
+      
+      <form action="/upload-endpoint" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="post-title">Article Title</label>
+          <input type="text" id="post-title" name="title" required placeholder="Enter article headline">
+        </div>
+
+        <div class="form-group">
+          <label for="post-content">Body Content</label>
+          <textarea id="post-content" name="content" required placeholder="Write your content here..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="file-upload">Attach Asset / Image</label>
+          <input type="file" id="file-upload" name="media" accept="image/*,.pdf">
+        </div>
+
+        <button type="submit">Publish Update</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 Enterprise Inc. All rights reserved.</footer>
+</body>
+</html>
