@@ -9,7 +9,12 @@
 <body>
   <header>
     <a href="index.html" class="logo">Enterprise</a>
-    <nav>
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav id="nav-menu">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -18,13 +23,32 @@
   </header>
 
   <main>
-    <div class="card">
+    <section class="hero-card">
       <h1>Welcome to Our Platform</h1>
       <p>We deliver high-performance solutions designed to scale your operational workflow efficiently. Explore our background or contact our team directly.</p>
-      <a href="contact.html"><button>Get in Touch</button></a>
-    </div>
+      <div class="cta-group">
+        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        <a href="about.html" class="btn btn-secondary">Learn More</a>
+      </div>
+    </section>
+
+    <section class="features-grid">
+      <div class="card feature-item">
+        <h3>Reliable Infrastructure</h3>
+        <p>Built on solid core engineering practices to ensure high uptime and security.</p>
+      </div>
+      <div class="card feature-item">
+        <h3>Seamless Integration</h3>
+        <p>Easily integrate with existing cloud and enterprise software setups.</p>
+      </div>
+      <div class="card feature-item">
+        <h3>Automated Workflows</h3>
+        <p>Save operational hours by deploying fully automated deployment pipelines.</p>
+      </div>
+    </section>
   </main>
 
   <footer>&copy; 2026 Enterprise Inc. All rights reserved.</footer>
+  <script src="script.js"></script>
 </body>
 </html>
