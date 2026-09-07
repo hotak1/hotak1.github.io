@@ -36,7 +36,6 @@ contactForm.addEventListener('submit', function(e) {
     const message = document.getElementById('message').value.trim();
 
     if (name && email && message) {
-        // Simulate successful request
         formMessage.style.color = '#16a34a'; // Green success color
         formMessage.textContent = 'Thank you. Your message has been sent successfully. Our team will contact you shortly.';
         contactForm.reset();
