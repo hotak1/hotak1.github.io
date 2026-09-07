@@ -2,64 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lens & Aperture — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Lens & Aperture — HD Photography Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Header / Navigation -->
+  <!-- Navigation Bar -->
   <header class="navbar">
-    <div class="logo">LENS & VISION</div>
-    <nav>
+    <a href="#" class="logo">LENS & VISION</a>
+    <nav class="nav-links">
       <a href="#hero">Featured</a>
       <a href="#gallery">Gallery</a>
       <a href="#about">About</a>
     </nav>
   </header>
 
-  <!-- Hero Section: Left-to-Right Continuous Auto-Moving Marquee -->
-  <section id="hero" class="hero-section">
-    <div class="marquee-container">
-      <div class="marquee-track">
-        <!-- FIRST SET OF PHOTOS -->
-        <div class="photo-card"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Landscape 1"></div>
-        <div class="photo-card"><img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Landscape 2"></div>
-        <div class="photo-card"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Landscape 3"></div>
-        <div class="photo-card"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Landscape 4"></div>
-        
-        <!-- DUPLICATE SET (Required for seamless continuous infinite loop) -->
-        <div class="photo-card"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Landscape 1"></div>
-        <div class="photo-card"><img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Landscape 2"></div>
-        <div class="photo-card"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Landscape 3"></div>
-        <div class="photo-card"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Landscape 4"></div>
+  <main>
+    <!-- Hero Section: Left-to-Right Auto-Moving Continuous Marquee -->
+    <section id="hero" class="hero-section">
+      <div class="hero-header">
+        <h1>SELECTED SHOTS</h1>
+        <p>Continuous showcase / Camera roll</p>
       </div>
-    </div>
-  </section>
 
-  <!-- Portfolio Gallery Grid -->
-  <section id="gallery" class="gallery-section">
-    <h2>Selected Works</h2>
-    <div class="gallery-grid">
-      <!-- To replace images, change the src path to images/your-photo.jpg -->
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600" alt="Photo 1"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1600" alt="Photo 2"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1600" alt="Photo 3"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1600" alt="Photo 4"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600" alt="Photo 5"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1600" alt="Photo 6"></div>
-    </div>
-  </section>
+      <div class="marquee-container">
+        <div class="marquee-track">
+          <!-- FIRST SET OF PHOTOS -->
+          <div class="photo-card"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Landscape 1" loading="eager"></div>
+          <div class="photo-card"><img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Landscape 2" loading="eager"></div>
+          <div class="photo-card"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Landscape 3" loading="eager"></div>
+          <div class="photo-card"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Landscape 4" loading="eager"></div>
+          
+          <!-- DUPLICATE SET (Required for seamless continuous infinite loop) -->
+          <div class="photo-card"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Landscape 1" loading="eager"></div>
+          <div class="photo-card"><img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Landscape 2" loading="eager"></div>
+          <div class="photo-card"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Landscape 3" loading="eager"></div>
+          <div class="photo-card"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Landscape 4" loading="eager"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Portfolio Gallery Section -->
+    <section id="gallery" class="gallery-section">
+      <div class="section-title">
+        <h2>PORTFOLIO GRID</h2>
+        <p>Tap or click any photograph to expand in Full HD</p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Replace src with your local image path, e.g., images/my-photo-1.jpg -->
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600" alt="HD Photo 1" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1600" alt="HD Photo 2" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1600" alt="HD Photo 3" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1600" alt="HD Photo 4" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600" alt="HD Photo 5" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1600" alt="HD Photo 6" loading="lazy"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <h2>ABOUT THE GEAR & VISION</h2>
+      <p>Captured with high-resolution full-frame sensors and prime glass. Dedicated to high-dynamic-range landscape, architectural, and fine art photography.</p>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Photography Portfolio. All rights reserved.</p>
+    <p>&copy; 2026 Photography Portfolio. Built for high resolution displays.</p>
   </footer>
 
-  <!-- Lightbox Popup Modal for Viewing Full HD Photos -->
-  <div id="lightbox" class="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img" alt="Full view">
+  <!-- Lightbox Modal for Full HD Viewing -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <img class="lightbox-content" id="lightbox-img" alt="Full view high resolution">
   </div>
 
   <script src="script.js"></script>
