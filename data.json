@@ -1,56 +1,37 @@
-[
-  {
-    "id": "01",
-    "title": "Route 3 Highway Pursuit",
-    "category": "automotive",
-    "image": "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=1200",
-    "camera": "Canon EOS R5",
-    "lens": "RF 70-200mm f/2.8L IS USM",
-    "specs": "Vehicle Panning Rig / 1/60s"
-  },
-  {
-    "id": "02",
-    "title": "Kwun Tong Brutalism",
-    "category": "architecture",
-    "image": "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200",
-    "camera": "Canon EOS R",
-    "lens": "RF 15-35mm f/2.8L IS USM",
-    "specs": "Architectural Exterior"
-  },
-  {
-    "id": "03",
-    "title": "Shenzhen Bay Timelapse",
-    "category": "motion",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200",
-    "camera": "GoPro Hero 12 Black",
-    "lens": "Ultra-Wide Linear",
-    "specs": "4K H.265 / 10-Bit Color"
-  },
-  {
-    "id": "04",
-    "title": "Neon Grid Noir",
-    "category": "architecture",
-    "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200",
-    "camera": "Canon EOS R5",
-    "lens": "RF 50mm f/1.2L USM",
-    "specs": "Urban Nightscape"
-  },
-  {
-    "id": "05",
-    "title": "Mountain Ridge Ascent",
-    "category": "motion",
-    "image": "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200",
-    "camera": "GoPro Hero 12 Black",
-    "lens": "SuperView",
-    "specs": "Action POV Mount"
-  },
-  {
-    "id": "06",
-    "title": "Classic Car Editorial",
-    "category": "automotive",
-    "image": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1200",
-    "camera": "Canon EOS R",
-    "lens": "RF 85mm f/1.2L USM",
-    "specs": "Studio Lighting / HSS"
-  }
-]
+{
+  "portfolio": [
+    {
+      "id": "01",
+      "category": "Automotive",
+      "title": "Vehicle Panning",
+      "description": "High-speed tracking shot captured on local highway routes.",
+      "image": "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=800"
+    },
+    {
+      "id": "02",
+      "category": "Architecture",
+      "title": "Kwun Tong Geometry",
+      "description": "Brutalist structural details and urban perspective shots.",
+      "image": "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=800"
+    },
+    {
+      "id": "03",
+      "category": "Motion",
+      "title": "Shenzhen Bay Timelapse",
+      "description": "High-resolution intervalometer sequences with custom color pass.",
+      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800"
+    },
+    {
+      "id": "04",
+      "category": "Editorial",
+      "title": "Studio Lighting",
+      "description": "High-speed sync photography and natural ambient pairing.",
+      "image": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=800"
+    }
+  ],
+  "gear": [
+    "<strong>Cameras:</strong> Canon EOS R Series, GoPro Action Units",
+    "<strong>Post-Production:</strong> DaVinci Resolve Studio, OBS Studio",
+    "<strong>Hardware:</strong> Dual-GPU Rendering Workstation"
+  ]
+}

@@ -47,7 +47,7 @@
     </div>
   </section>
 
-  <!-- Portfolio Section -->
+  <!-- Portfolio Section (Dynamically Populated) -->
   <section class="portfolio" id="work">
     <div class="container">
       <div class="section-header">
@@ -55,50 +55,8 @@
         <p>A collection of recent commercial photography and motion projects.</p>
       </div>
 
-      <div class="grid">
-        <article class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=800" alt="Automotive Motion">
-          </div>
-          <div class="card-content">
-            <span class="category">Automotive</span>
-            <h3>Vehicle Panning</h3>
-            <p>High-speed tracking shot captured on local highway routes.</p>
-          </div>
-        </article>
-        
-        <article class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=800" alt="Urban Architecture">
-          </div>
-          <div class="card-content">
-            <span class="category">Architecture</span>
-            <h3>Kwun Tong Geometry</h3>
-            <p>Brutalist structural details and urban perspective shots.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800" alt="Landscape Timelapses">
-          </div>
-          <div class="card-content">
-            <span class="category">Motion</span>
-            <h3>Shenzhen Bay Timelapse</h3>
-            <p>High-resolution intervalometer sequences with custom color pass.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=800" alt="Editorial Stills">
-          </div>
-          <div class="card-content">
-            <span class="category">Editorial</span>
-            <h3>Studio Lighting</h3>
-            <p>High-speed sync photography and natural ambient pairing.</p>
-          </div>
-        </article>
+      <div class="grid" id="portfolio-grid">
+        <!-- JavaScript injects portfolio cards here -->
       </div>
     </div>
   </section>
@@ -115,10 +73,8 @@
         
         <div class="gear-box">
           <h3>Production Capabilities</h3>
-          <ul class="gear-list">
-            <li><strong>Cameras:</strong> Canon EOS R Series, GoPro Action Units</li>
-            <li><strong>Post-Production:</strong> DaVinci Resolve Studio, OBS Studio</li>
-            <li><strong>Hardware:</strong> Dual-GPU Rendering Workstation</li>
+          <ul class="gear-list" id="gear-list">
+            <!-- JavaScript injects gear list items here -->
           </ul>
         </div>
       </div>
