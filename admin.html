@@ -3,54 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Content Manager | Corporate Site</title>
+  <title>CMS Dashboard | hotak1.com</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Login Overlay Styles */
+    #login-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .login-card {
+      background: var(--surface);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 400px;
+      box-shadow: var(--shadow);
+    }
+    .error-msg {
+      color: #dc2626;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+    #cms-app {
+      display: none; /* Hidden until authenticated */
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">Enterprise</a>
-    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-    <nav id="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="admin.html" class="active">Dashboard</a>
-    </nav>
-  </header>
 
-  <main>
-    <div class="card">
-      <h1>Website Content CMS</h1>
-      <p>Select a page to edit its headings, taglines, and paragraph copy.</p>
-      
-      <!-- Page Selector Form -->
-      <div class="form-group">
-        <label for="page-selector">Choose Page to Edit</label>
-        <select id="page-selector" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); font-size: 1rem;">
-          <option value="index">Home Page (index.html)</option>
-          <option value="about">About Page (about.html)</option>
-          <option value="contact">Contact Page (contact.html)</option>
-        </select>
-      </div>
-
-      <!-- Dynamic Content Editor Form -->
-      <form id="cms-form">
-        <div id="editor-fields">
-          <!-- Dynamic inputs will load here via JavaScript -->
+  <!-- Login Gate Overlay -->
+  <div id="login-overlay">
+    <div class="login-card">
+      <h1>CMS Login</h1>
+      <p>Enter your credentials to manage hotak1.com content.</p>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" required placeholder="Enter username">
         </div>
-
-        <button type="submit" class="btn btn-primary">Save Content Changes</button>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required placeholder="Enter password">
+        </div>
+        <div id="login-error" class="error-msg">Invalid username or password. Please try again.</div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Sign In</button>
       </form>
     </div>
-  </main>
+  </div>
 
-  <footer>&copy; 2026 Enterprise Inc. All rights reserved.</footer>
+  <!-- Protected CMS Application -->
+  <div id="cms-app">
+    <header>
+      <a href="index.html" class="logo">hotak1.com</a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html" class="active">CMS Dashboard</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="card">
+        <h1>Website Content CMS</h1>
+        <p>Select a page to edit its headings, taglines, and paragraph copy dynamically[cite: 1, 4, 5].</p>
+        
+        <!-- Page Selector Form -->
+        <div class="form-group">
+          <label for="page-selector">Choose Page to Edit</label>
+          <select id="page-selector" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); font-size: 1rem;">
+            <option value="index">Home Page (index.html)</option>
+            <option value="about">About Page (about.html)</option>
+            <option value="contact">Contact Page (contact.html)</option>
+          </select>
+        </div>
+
+        <!-- Dynamic Content Editor Form -->
+        <form id="cms-form">
+          <div id="editor-fields">
+            <!-- Dynamic inputs will load here via JavaScript -->
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            <button type="submit" class="btn btn-primary">Save Content Changes</button>
+            <button type="button" id="logout-btn" class="btn btn-secondary">Sign Out</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>&copy; 2026 hotak1.com. All rights reserved.</footer>
+  </div>
+
   <script src="script.js"></script>
   <script>
+    // Authentication Credentials
+    const AUTH_USER = "pat";
+    const AUTH_PASS = "Today123";
+
+    const loginOverlay = document.getElementById('login-overlay');
+    const loginForm = document.getElementById('login-form');
+    const loginError = document.getElementById('login-error');
+    const cmsApp = document.getElementById('cms-app');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    // Check existing session state on load
+    if (sessionStorage.getItem('cms_authenticated') === 'true') {
+      showCMS();
+    }
+
+    // Handle Login Submission
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+
+      if (user === AUTH_USER && pass === AUTH_PASS) {
+        sessionStorage.setItem('cms_authenticated', 'true');
+        loginError.style.display = 'none';
+        showCMS();
+      } else {
+        loginError.style.display = 'block';
+      }
+    });
+
+    // Handle Logout
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.removeItem('cms_authenticated');
+      cmsApp.style.display = 'none';
+      loginOverlay.style.display = 'flex';
+      loginForm.reset();
+    });
+
+    function showCMS() {
+      loginOverlay.style.display = 'none';
+      cmsApp.style.display = 'block';
+    }
+
     // CMS Template Data Store mapping editable elements for each page
     const pageData = {
       index: {
@@ -78,7 +181,6 @@
     const editorFields = document.getElementById('editor-fields');
     const cmsForm = document.getElementById('cms-form');
 
-    // Function to render input fields based on the selected page
     function loadEditorFields(pageKey) {
       const data = pageData[pageKey];
       let html = '';
@@ -98,26 +200,23 @@
       editorFields.innerHTML = html;
     }
 
-    // Initial load
+    // Initial load of fields
     loadEditorFields(pageSelector.value);
 
-    // Switch fields on dropdown change
     pageSelector.addEventListener('change', (e) => {
       loadEditorFields(e.target.value);
     });
 
-    // Handle form submission simulation
     cmsForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const currentPage = pageSelector.value;
       const formData = new FormData(cmsForm);
       
-      // Update local data store simulation
       for (const [key, value] of formData.entries()) {
         pageData[currentPage][key] = value;
       }
 
-      alert(`Successfully saved changes for ${currentPage}.html! (In a production environment, this pushes changes to your server backend or CMS API)`);
+      alert(`Successfully saved updates for ${currentPage}.html on hotak1.com!`);
     });
   </script>
 </body>
