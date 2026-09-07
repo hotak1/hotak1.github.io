@@ -23,7 +23,6 @@
 
   html{ scroll-behavior: smooth; }
 
-  /* Body font: Source Serif 4 at 17px / 1.65 line-height */
   body{
     margin: 0;
     background: var(--paper);
@@ -49,7 +48,6 @@
     min-height: 100vh;
   }
 
-  /* Side navigation: IBM Plex Mono typography scale */
   nav.side{
     border-right: 1px solid var(--rule);
     padding: 64px 28px 40px 0;
@@ -85,10 +83,8 @@
   }
   nav.side a.active, nav.side a:hover{ color: var(--forest); border-left-color: var(--forest); }
 
-  /* Main content layout */
   main{ padding: 64px 40px 100px 44px; max-width: 760px; }
 
-  /* Headings scale matching main page */
   h1{
     font-size: clamp(2.1rem, 4vw, 2.7rem);
     font-weight: 600;
@@ -99,21 +95,21 @@
   .subtitle{
     font-size: 1.15rem;
     color: var(--umber);
-    max-width: 46ch;
+    max-width: 48ch;
     margin: 0 0 36px;
   }
 
   h2{
     font-size: 1.05rem;
     font-weight: 600;
-    margin: 0 0 28px;
+    margin: 40px 0 24px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--rule);
   }
+  .cms-group-section:first-child h2 { margin-top: 0; }
 
   p{ max-width: 68ch; margin: 0 0 16px; font-size: 17px; }
 
-  /* Form Labels & Mono Elements */
   .form-group{ margin-bottom: 24px; }
 
   label{
@@ -126,7 +122,6 @@
     text-transform: uppercase;
   }
 
-  /* Content Text Fields: Exact 17px Source Serif 4 matching body text */
   input[type="text"].content-input,
   textarea{
     width: 100%;
@@ -141,7 +136,6 @@
     box-sizing: border-box;
   }
 
-  /* Control inputs, selects & auth fields: IBM Plex Mono 13px */
   input[type="password"],
   input.mono-input,
   select{
@@ -166,7 +160,6 @@
     min-height: 120px;
   }
 
-  /* Buttons: 13px IBM Plex Mono matching meta elements */
   .btn{
     font-family: "IBM Plex Mono", monospace;
     font-size: 13px;
@@ -197,7 +190,6 @@
     border-color: var(--brass);
   }
 
-  /* System Notices: 12px IBM Plex Mono */
   .error-msg{
     font-family: "IBM Plex Mono", monospace;
     font-size: 12px;
@@ -218,9 +210,11 @@
     padding: 10px 14px;
     margin-bottom: 24px;
     display: none;
+    position: sticky;
+    top: 20px;
+    z-index: 10;
   }
 
-  /* Footer: Exact 11.5px IBM Plex Mono matching main page */
   footer{
     padding: 28px 40px 40px 44px;
     font-family: "IBM Plex Mono", monospace;
@@ -281,35 +275,20 @@
       </form>
     </section>
 
-    <!-- EDITOR DASHBOARD -->
+    <!-- FULL PAGE EDITOR DASHBOARD -->
     <section id="cms-section" style="display: none;">
-      <h1>Website Content Editor</h1>
-      <p class="subtitle">Select a section to modify any text displayed on the website.</p>
+      <h1>Full Website Copy Editor</h1>
+      <p class="subtitle">Edit every word across all sections of your website directly on this single page.</p>
 
-      <div id="save-status" class="status-msg">Changes saved to workspace session.</div>
-
-      <div class="form-group" style="max-width: 360px; margin-bottom: 36px;">
-        <label for="page-selector">Target Section</label>
-        <select id="page-selector">
-          <option value="nav">Sidebar Navigation</option>
-          <option value="hero">Hero / Introduction</option>
-          <option value="about">About Section</option>
-          <option value="work">Work Timeline</option>
-          <option value="projects">Projects List</option>
-          <option value="contact">Contact Information</option>
-          <option value="footer">Footer Copy</option>
-        </select>
-      </div>
-
-      <h2>Edit Section Fields</h2>
+      <div id="save-status" class="status-msg">All website changes saved successfully.</div>
 
       <form id="cms-form">
         <div id="editor-fields">
-          <!-- Form fields render dynamically -->
+          <!-- All site content fields render here sequentially -->
         </div>
 
-        <div style="display: flex; gap: 12px; margin-top: 36px; align-items: center;">
-          <button type="submit" class="btn">Save Content</button>
+        <div style="display: flex; gap: 12px; margin-top: 48px; align-items: center; position: sticky; bottom: 20px; background: var(--paper); padding: 16px 0; border-top: 1px solid var(--rule);">
+          <button type="submit" class="btn">Save All Changes</button>
           <button type="button" id="logout-btn" class="btn btn-secondary">Sign Out</button>
         </div>
       </form>
@@ -359,9 +338,10 @@
   function showCMS() {
     loginSection.style.display = 'none';
     cmsSection.style.display = 'block';
+    renderAllFields();
   }
 
-  // Complete data object matching every single text node in index_2.html
+  // Complete site dictionary covering every single word on index_2.html
   const siteContent = {
     nav: {
       navName: "Alex Rivera",
@@ -426,53 +406,63 @@
     }
   };
 
-  const pageSelector = document.getElementById('page-selector');
+  const sectionTitles = {
+    nav: "1. Navigation & Sidebar",
+    hero: "2. Hero / Introduction",
+    about: "3. About Section",
+    work: "4. Work Timeline",
+    projects: "5. Projects Listing",
+    contact: "6. Contact Information",
+    footer: "7. Footer Copy"
+  };
+
   const editorFields = document.getElementById('editor-fields');
   const cmsForm = document.getElementById('cms-form');
 
-  function renderEditorFields(sectionKey) {
-    const data = siteContent[sectionKey];
+  function renderAllFields() {
     let html = '';
 
-    for (const [key, val] of Object.entries(data)) {
-      const formattedLabel = key.replace(/([A-Z0-9])/g, ' $1').toUpperCase();
-      const isLongText = val.length > 50;
-      
-      html += `
-        <div class="form-group">
-          <label for="${key}">${formattedLabel}</label>
-          ${isLongText ? 
-            `<textarea id="${key}" name="${key}" required>${val}</textarea>` : 
-            `<input type="text" id="${key}" name="${key}" value="${val}" class="content-input" required>`
-          }
-        </div>
-      `;
+    for (const [sectionKey, fields] of Object.entries(siteContent)) {
+      html += `<div class="cms-group-section">`;
+      html += `<h2>${sectionTitles[sectionKey] || sectionKey.toUpperCase()}</h2>`;
+
+      for (const [key, val] of Object.entries(fields)) {
+        const fieldId = `${sectionKey}__${key}`;
+        const formattedLabel = key.replace(/([A-Z0-9])/g, ' $1').toUpperCase();
+        const isLongText = val.length > 50;
+
+        html += `
+          <div class="form-group">
+            <label for="${fieldId}">${formattedLabel}</label>
+            ${isLongText ? 
+              `<textarea id="${fieldId}" name="${fieldId}" required>${val}</textarea>` : 
+              `<input type="text" id="${fieldId}" name="${fieldId}" value="${val}" class="content-input" required>`
+            }
+          </div>
+        `;
+      }
+      html += `</div>`;
     }
+
     editorFields.innerHTML = html;
   }
 
-  renderEditorFields(pageSelector.value);
-
-  pageSelector.addEventListener('change', (e) => {
-    saveStatus.style.display = 'none';
-    renderEditorFields(e.target.value);
-  });
-
   cmsForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const currentSection = pageSelector.value;
     const formData = new FormData(cmsForm);
 
-    for (const [k, v] of formData.entries()) {
-      siteContent[currentSection][k] = v;
+    for (const [fieldId, val] of formData.entries()) {
+      const [sectionKey, key] = fieldId.split('__');
+      if (siteContent[sectionKey] && siteContent[sectionKey][key] !== undefined) {
+        siteContent[sectionKey][key] = val;
+      }
     }
 
-    // Dynamic sidebar update demonstration
-    if (currentSection === 'nav') {
-      document.getElementById('sidebar-name').textContent = siteContent.nav.navName;
-    }
+    document.getElementById('sidebar-name').textContent = siteContent.nav.navName;
+    document.getElementById('sidebar-role').textContent = siteContent.nav.navRole;
 
     saveStatus.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 
