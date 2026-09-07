@@ -3,36 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lee Ho Tak | Photography & Videography</title>
+  <title>Lee Ho Tak | Visuals & Photography</title>
   
-  <!-- Standard Clean Web Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Standard Top Navigation -->
+  <!-- Navigation Bar -->
   <header class="navbar">
     <div class="nav-container">
-      <a href="#" class="logo">Lee Ho Tak.</a>
-      <nav class="nav-links">
+      <a href="#" class="logo">Lee Ho Tak<span>.</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
         <a href="#work">Portfolio</a>
         <a href="#about">About</a>
-        <a href="#contact" class="btn-nav">Contact Me</a>
+        <a href="#contact" class="btn-nav">Contact</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="hero-container">
+    <div class="container hero-container">
       <div class="hero-text">
-        <h1>Capturing life, architecture, and motion.</h1>
-        <p>I am a visual storyteller based in Hong Kong, specializing in high-resolution stills, automotive panning, and post-production.</p>
-        <a href="#work" class="btn-primary">View My Work</a>
+        <h1>Capturing motion, structures, and moments.</h1>
+        <p>Hong Kong-based visual storyteller specializing in high-resolution stills, automotive panning, and post-production workflows.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn-primary">View Portfolio</a>
+          <a href="#contact" class="btn-secondary">Get in Touch</a>
+        </div>
       </div>
       <div class="hero-image">
         <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000" alt="Camera Lens">
@@ -45,102 +52,124 @@
     <div class="container">
       <div class="section-header">
         <h2>Selected Works</h2>
-        <p>A collection of recent photography and motion projects.</p>
+        <p>A collection of recent commercial photography and motion projects.</p>
       </div>
 
-      <!-- Standard Grid -->
       <div class="grid">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=800" alt="Automotive">
-          <div class="card-content">
-            <h3>Automotive Motion</h3>
-            <p>Vehicle panning photography.</p>
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=800" alt="Automotive Motion">
           </div>
-        </div>
+          <div class="card-content">
+            <span class="category">Automotive</span>
+            <h3>Vehicle Panning</h3>
+            <p>High-speed tracking shot captured on local highway routes.</p>
+          </div>
+        </article>
         
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=800" alt="Architecture">
-          <div class="card-content">
-            <h3>Urban Architecture</h3>
-            <p>Kwun Tong brutalist structures.</p>
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=800" alt="Urban Architecture">
           </div>
-        </div>
+          <div class="card-content">
+            <span class="category">Architecture</span>
+            <h3>Kwun Tong Geometry</h3>
+            <p>Brutalist structural details and urban perspective shots.</p>
+          </div>
+        </article>
 
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800" alt="Landscape">
-          <div class="card-content">
-            <h3>Landscape Timelapses</h3>
-            <p>High-resolution environment captures.</p>
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800" alt="Landscape Timelapses">
           </div>
-        </div>
+          <div class="card-content">
+            <span class="category">Motion</span>
+            <h3>Shenzhen Bay Timelapse</h3>
+            <p>High-resolution intervalometer sequences with custom color pass.</p>
+          </div>
+        </article>
 
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=800" alt="Editorial">
-          <div class="card-content">
-            <h3>Editorial Stills</h3>
-            <p>Studio and natural lighting portraiture.</p>
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=800" alt="Editorial Stills">
           </div>
-        </div>
+          <div class="card-content">
+            <span class="category">Editorial</span>
+            <h3>Studio Lighting</h3>
+            <p>High-speed sync photography and natural ambient pairing.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- About & Gear Section -->
+  <!-- About Section -->
   <section class="about" id="about">
     <div class="container about-container">
-      <div class="about-text">
-        <h2>About Me & Equipment</h2>
-        <p>I combine my background in technical workflows with creative photography. When I'm not configuring web environments or working with automation scripts, I'm out capturing the world through a lens.</p>
-        
-        <div class="gear-list">
-          <div class="gear-item">
-            <strong>Cameras:</strong> Canon EOS R Series, GoPro
-          </div>
-          <div class="gear-item">
-            <strong>Post-Production:</strong> DaVinci Resolve Studio, OBS Studio
-          </div>
-          <div class="gear-item">
-            <strong>Workstation:</strong> Custom dual-GPU setup for heavy H.265 rendering
-          </div>
-        </div>
-      </div>
       <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=800" alt="Creative Workspace">
+        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=800" alt="Workspace Setup">
+      </div>
+      <div class="about-text">
+        <h2>Technical Precision Meets Visual Artistry</h2>
+        <p>Combining field experience with modern post-production pipelines to deliver high-quality assets tailored for multi-platform delivery.</p>
+        
+        <div class="gear-box">
+          <h3>Production Capabilities</h3>
+          <ul class="gear-list">
+            <li><strong>Cameras:</strong> Canon EOS R Series, GoPro Action Units</li>
+            <li><strong>Post-Production:</strong> DaVinci Resolve Studio, OBS Studio</li>
+            <li><strong>Hardware:</strong> Dual-GPU Rendering Workstation</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Standard Contact Form -->
+  <!-- Contact Section -->
   <section class="contact" id="contact">
-    <div class="container contact-container">
-      <h2>Let's work together.</h2>
-      <p>Reach out for commercial bookings or project inquiries.</p>
-      
-      <form class="standard-form">
-        <div class="input-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Jane Doe" required>
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="section-header">
+          <h2>Start a Project</h2>
+          <p>Reach out for availability, commercial assignments, or general inquiries.</p>
         </div>
         
-        <div class="input-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="jane@example.com" required>
-        </div>
-        
-        <div class="input-group">
-          <label for="message">Message</label>
-          <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-        </div>
-        
-        <button type="submit" class="btn-primary">Send Message</button>
-      </form>
+        <form class="contact-form">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="John Doe" required>
+            </div>
+            
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="john@example.com" required>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label for="subject">Project Type</label>
+            <input type="text" id="subject" placeholder="e.g. Automotive Shoot, Location Footage" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Provide details about your project scope and timeline..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-primary btn-block">Send Message</button>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-container">
       <p>&copy; 2026 Lee Ho Tak. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#home">Back to top ↑</a>
+      </div>
     </div>
   </footer>
 
