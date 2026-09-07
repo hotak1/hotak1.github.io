@@ -34,6 +34,11 @@
   <section class="hero" id="home">
     <div class="container hero-container">
       <div class="hero-text">
+        <!-- Dynamic Status Badge -->
+        <div id="status-badge" class="status-badge">
+          <span class="status-dot"></span> <span class="status-text">Checking availability...</span>
+        </div>
+        
         <h1>Capturing motion, structures, and moments.</h1>
         <p>Hong Kong-based visual storyteller specializing in high-resolution stills, automotive panning, and post-production workflows.</p>
         <div class="hero-actions">
@@ -47,7 +52,7 @@
     </div>
   </section>
 
-  <!-- Portfolio Section (Dynamically Populated) -->
+  <!-- Portfolio Section -->
   <section class="portfolio" id="work">
     <div class="container">
       <div class="section-header">
@@ -55,8 +60,13 @@
         <p>A collection of recent commercial photography and motion projects.</p>
       </div>
 
+      <!-- Dynamic Filter Buttons -->
+      <div class="filter-container" id="filter-container">
+        <button class="filter-btn active" data-filter="all">All</button>
+      </div>
+
       <div class="grid" id="portfolio-grid">
-        <!-- JavaScript injects portfolio cards here -->
+        <!-- Injected via JavaScript -->
       </div>
     </div>
   </section>
@@ -74,7 +84,7 @@
         <div class="gear-box">
           <h3>Production Capabilities</h3>
           <ul class="gear-list" id="gear-list">
-            <!-- JavaScript injects gear list items here -->
+            <!-- Injected via JavaScript -->
           </ul>
         </div>
       </div>
@@ -118,6 +128,12 @@
       </div>
     </div>
   </section>
+
+  <!-- Image Lightbox Modal -->
+  <div class="modal" id="image-modal">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <img id="modal-img" src="" alt="Enlarged view">
+  </div>
 
   <!-- Footer -->
   <footer class="site-footer">
