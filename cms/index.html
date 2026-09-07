@@ -23,6 +23,7 @@
 
   html{ scroll-behavior: smooth; }
 
+  /* Body font: Source Serif 4 at 17px / 1.65 line-height */
   body{
     margin: 0;
     background: var(--paper);
@@ -48,7 +49,7 @@
     min-height: 100vh;
   }
 
-  /* ---- Side nav (book margin) ---- */
+  /* Side navigation: IBM Plex Mono typography scale */
   nav.side{
     border-right: 1px solid var(--rule);
     padding: 64px 28px 40px 0;
@@ -84,9 +85,10 @@
   }
   nav.side a.active, nav.side a:hover{ color: var(--forest); border-left-color: var(--forest); }
 
-  /* ---- Main content ---- */
+  /* Main content layout */
   main{ padding: 64px 40px 100px 44px; max-width: 760px; }
 
+  /* Headings scale matching main page */
   h1{
     font-size: clamp(2.1rem, 4vw, 2.7rem);
     font-weight: 600;
@@ -97,22 +99,22 @@
   .subtitle{
     font-size: 1.15rem;
     color: var(--umber);
-    max-width: 48ch;
+    max-width: 46ch;
     margin: 0 0 36px;
   }
 
   h2{
     font-size: 1.05rem;
     font-weight: 600;
-    margin: 0 0 24px;
+    margin: 0 0 28px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--rule);
   }
 
-  /* ---- Forms & Controls ---- */
-  .form-group{
-    margin-bottom: 24px;
-  }
+  p{ max-width: 68ch; margin: 0 0 16px; font-size: 17px; }
+
+  /* Form Labels & Mono Elements */
+  .form-group{ margin-bottom: 24px; }
 
   label{
     display: block;
@@ -124,9 +126,8 @@
     text-transform: uppercase;
   }
 
-  input[type="text"],
-  input[type="password"],
-  select,
+  /* Content Text Fields: Exact 17px Source Serif 4 matching body text */
+  input[type="text"].content-input,
   textarea{
     width: 100%;
     background: var(--paper);
@@ -135,21 +136,37 @@
     border-radius: 0;
     padding: 10px 12px;
     font-family: "Source Serif 4", Georgia, serif;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.65;
     box-sizing: border-box;
   }
 
-  select, input[type="text"]:focus, input[type="password"]:focus, textarea:focus{
+  /* Control inputs, selects & auth fields: IBM Plex Mono 13px */
+  input[type="password"],
+  input.mono-input,
+  select{
+    width: 100%;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    padding: 10px 12px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    box-sizing: border-box;
+  }
+
+  select:focus, input:focus, textarea:focus{
     background: #ffffff;
     border-color: var(--brass);
   }
 
   textarea{
     resize: vertical;
-    min-height: 110px;
+    min-height: 120px;
   }
 
+  /* Buttons: 13px IBM Plex Mono matching meta elements */
   .btn{
     font-family: "IBM Plex Mono", monospace;
     font-size: 13px;
@@ -180,6 +197,7 @@
     border-color: var(--brass);
   }
 
+  /* System Notices: 12px IBM Plex Mono */
   .error-msg{
     font-family: "IBM Plex Mono", monospace;
     font-size: 12px;
@@ -202,17 +220,15 @@
     display: none;
   }
 
+  /* Footer: Exact 11.5px IBM Plex Mono matching main page */
   footer{
     padding: 28px 40px 40px 44px;
     font-family: "IBM Plex Mono", monospace;
     font-size: 11.5px;
     color: var(--umber);
     grid-column: 2;
-    border-top: 1px solid var(--rule);
-    margin-top: 40px;
   }
 
-  /* ---- Mobile ---- */
   @media (max-width: 760px){
     .layout{ grid-template-columns: 1fr; }
     nav.side{
@@ -232,29 +248,28 @@
 <body>
 
 <div class="layout">
-  <!-- Side Navigation matching main page -->
   <nav class="side" aria-label="CMS navigation">
     <p class="nav-name">Alex Rivera</p>
     <p class="nav-role">CMS Workspace</p>
     <ul>
-      <li><a href="../index.html">← Back to Site</a></li>
+      <li><a href="../index.html">← Main Site</a></li>
       <li><a href="#" class="active">Content Editor</a></li>
     </ul>
   </nav>
 
   <main>
 
-    <!-- 1. LOGIN SECTION -->
+    <!-- LOGIN SECTION -->
     <section id="login-section">
       <h1>Content Management</h1>
-      <p class="subtitle">Enter your authorization credentials to edit website entries and layout text.</p>
+      <p class="subtitle">Enter your credentials to update website content and text entries.</p>
 
       <div id="login-error" class="error-msg">Invalid login credentials. Please try again.</div>
 
       <form id="login-form" style="max-width: 400px;">
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" id="username" required autocomplete="username">
+          <input type="text" id="username" class="mono-input" required autocomplete="username">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
@@ -264,28 +279,28 @@
       </form>
     </section>
 
-    <!-- 2. EDITOR DASHBOARD (Hidden until logged in) -->
+    <!-- EDITOR DASHBOARD -->
     <section id="cms-section" style="display: none;">
-      <h1>Website Copy Editor</h1>
-      <p class="subtitle">Select a target section or page to modify its headings, paragraphs, and entries.</p>
+      <h1>Website Content Editor</h1>
+      <p class="subtitle">Select a section to modify its headings, paragraphs, and entries.</p>
 
-      <div id="save-status" class="status-msg">Changes saved successfully to workspace session.</div>
+      <div id="save-status" class="status-msg">Changes saved to workspace session.</div>
 
       <div class="form-group" style="max-width: 360px; margin-bottom: 36px;">
-        <label for="page-selector">Target Page / Section</label>
+        <label for="page-selector">Target Section</label>
         <select id="page-selector">
-          <option value="hero">Hero & Intro Section</option>
+          <option value="hero">Hero & Introduction</option>
           <option value="about">About Section</option>
-          <option value="work">Work Timeline</option>
+          <option value="work">Work Experience</option>
           <option value="projects">Projects Listing</option>
         </select>
       </div>
 
-      <h2>Edit Section Content</h2>
+      <h2>Edit Section Fields</h2>
 
       <form id="cms-form">
         <div id="editor-fields">
-          <!-- Dynamic text fields render here -->
+          <!-- Form fields render dynamically -->
         </div>
 
         <div style="display: flex; gap: 12px; margin-top: 36px; align-items: center;">
@@ -297,7 +312,7 @@
 
   </main>
 
-  <footer>CMS Portal · hotak1.com</footer>
+  <footer>CMS Workspace · Alex Rivera</footer>
 </div>
 
 <script>
@@ -311,7 +326,6 @@
   const saveStatus = document.getElementById('save-status');
   const logoutBtn = document.getElementById('logout-btn');
 
-  // Check auth status
   if (sessionStorage.getItem('cms_authenticated') === 'true') {
     showCMS();
   }
@@ -342,7 +356,6 @@
     cmsSection.style.display = 'block';
   }
 
-  // Site Copy Data Structure mapped to main page sections
   const siteContent = {
     hero: {
       heading: "Building systems that hold up under real use.",
@@ -380,12 +393,14 @@
 
     for (const [key, val] of Object.entries(data)) {
       const formattedLabel = key.replace(/([A-Z])/g, ' $1').toUpperCase();
+      const isLongText = val.length > 60;
+      
       html += `
         <div class="form-group">
           <label for="${key}">${formattedLabel}</label>
-          ${val.length > 70 ? 
+          ${isLongText ? 
             `<textarea id="${key}" name="${key}" required>${val}</textarea>` : 
-            `<input type="text" id="${key}" name="${key}" value="${val}" required>`
+            `<input type="text" id="${key}" name="${key}" value="${val}" class="content-input" required>`
           }
         </div>
       `;
@@ -393,7 +408,6 @@
     editorFields.innerHTML = html;
   }
 
-  // Load initial section
   renderEditorFields(pageSelector.value);
 
   pageSelector.addEventListener('change', (e) => {
