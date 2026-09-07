@@ -3,130 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enterprise CMS Portal | hotak1.com</title>
+  <title>CMS Dashboard | hotak1.com</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    :root {
-      --cms-sidebar-width: 260px;
+    /* Robust inline overrides to guarantee clean professional styling */
+    body {
+      background-color: #0f172a;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
-    /* Authentication & Overlay */
     #login-overlay {
       position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(8px);
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #0f172a;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      padding: 1rem;
     }
+
     .login-card {
-      background: var(--surface);
-      padding: 3rem 2.5rem;
-      border-radius: var(--radius);
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 12px;
       width: 100%;
-      max-width: 420px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      border: 1px solid var(--border);
+      max-width: 400px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
     }
+
     .login-card h1 {
       font-size: 1.75rem;
+      color: #0f172a;
+      margin-top: 0;
       margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
     }
+
+    .login-card p {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-card .form-group {
+      margin-bottom: 1.25rem;
+      text-align: left;
+    }
+
+    .login-card label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+      font-size: 0.9rem;
+    }
+
+    .login-card input[type="text"],
+    .login-card input[type="password"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      background: #f8fafc;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+
+    .login-card input:focus {
+      border-color: #2563eb;
+      background: #ffffff;
+    }
+
+    .login-card button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+
+    .login-card button:hover {
+      background: #1d4ed8;
+    }
+
     .error-msg {
       background: #fef2f2;
       color: #dc2626;
       border: 1px solid #fecaca;
       padding: 0.75rem;
       border-radius: 6px;
-      font-size: 0.875rem;
-      margin-bottom: 1.25rem;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
       display: none;
     }
 
-    /* CMS Layout Dashboard */
     #cms-app {
       display: none;
-      min-height: 100vh;
-      background: var(--bg);
-    }
-    .cms-header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .cms-brand {
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .cms-brand span {
-      background: var(--accent);
-      color: white;
-      font-size: 0.75rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .cms-container {
-      max-width: 900px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem;
-    }
-    .cms-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
-    }
-    .cms-toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .success-banner {
-      background: #f0fdf4;
-      color: #16a34a;
-      border: 1px solid #bbf7d0;
-      padding: 1rem;
-      border-radius: var(--radius);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Secure Login Overlay -->
+  <!-- Login Gate Overlay -->
   <div id="login-overlay">
     <div class="login-card">
-      <h1>Admin Portal</h1>
-      <p style="margin-bottom: 1.5rem;">Secure authentication required for hotak1.com</p>
-      <div id="login-error" class="error-msg">Invalid username or password credentials.</div>
+      <h1>CMS Login</h1>
+      <p>Enter your credentials to manage hotak1.com content.</p>
+      <div id="login-error" class="error-msg">Invalid username or password. Please try again.</div>
       <form id="login-form">
         <div class="form-group">
           <label for="username">Username</label>
@@ -136,60 +133,62 @@
           <label for="password">Password</label>
           <input type="password" id="password" required placeholder="Enter password">
         </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Authenticate</button>
+        <button type="submit">Sign In</button>
       </form>
     </div>
   </div>
 
-  <!-- Main CMS Application View -->
+  <!-- Protected CMS Application -->
   <div id="cms-app">
-    <header class="cms-header">
-      <div class="cms-brand">
-        hotak1.com <span>CMS v2.0</span>
-      </div>
-      <div style="display: flex; gap: 1rem; align-items: center;">
-        <a href="../index.html" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View Live Site ↗</a>
-        <button type="button" id="logout-btn" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Sign Out</button>
-      </div>
+    <header>
+      <a href="../index.html" class="logo">hotak1.com</a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="nav-menu">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+        <a href="index.html" class="active">CMS Dashboard</a>
+      </nav>
     </header>
 
-    <main class="cms-container">
-      <div class="cms-card">
-        <div class="cms-toolbar">
-          <div>
-            <h1>Website Copy Editor</h1>
-            <p style="margin-bottom: 0;">Modify text content across your target HTML site pages instantly.</p>
-          </div>
-          <div style="min-width: 220px;">
-            <label for="page-selector" style="font-size: 0.8rem; margin-bottom: 0.25rem;">TARGET PAGE</label>
-            <select id="page-selector" style="width: 100%; padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); font-weight: 600; color: var(--primary);">
-              <option value="index">Home Page (index.html)</option>
-              <option value="about">About Page (about.html)</option>
-              <option value="contact">Contact Page (contact.html)</option>
-            </select>
-          </div>
+    <main>
+      <div class="card">
+        <h1>Website Content CMS</h1>
+        <p>Select a page to edit its headings, taglines, and paragraph copy dynamically.</p>
+        
+        <!-- Page Selector Form -->
+        <div class="form-group">
+          <label for="page-selector">Choose Page to Edit</label>
+          <select id="page-selector" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); font-size: 1rem;">
+            <option value="index">Home Page (index.html)</option>
+            <option value="about">About Page (about.html)</option>
+            <option value="contact">Contact Page (contact.html)</option>
+          </select>
         </div>
 
-        <div id="success-banner" class="success-banner">
-          <strong>Success!</strong> Changes successfully committed to layout memory.
-        </div>
-
+        <!-- Dynamic Content Editor Form -->
         <form id="cms-form">
           <div id="editor-fields">
-            <!-- Dynamic fields load here -->
+            <!-- Dynamic inputs will load here via JavaScript -->
           </div>
 
-          <div style="display: flex; gap: 1rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
-            <button type="submit" class="btn btn-primary">Save & Publish Updates</button>
-            <button type="reset" class="btn btn-secondary">Discard Changes</button>
+          <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1.5rem;">
+            <button type="submit" class="btn btn-primary">Save Content Changes</button>
+            <button type="button" id="logout-btn" class="btn btn-secondary">Sign Out</button>
           </div>
         </form>
       </div>
     </main>
+
+    <footer>&copy; 2026 hotak1.com. All rights reserved.</footer>
   </div>
 
+  <script src="../script.js"></script>
   <script>
-    // Authentication Credentials
     const AUTH_USER = "pat";
     const AUTH_PASS = "Today123";
 
@@ -198,58 +197,56 @@
     const loginError = document.getElementById('login-error');
     const cmsApp = document.getElementById('cms-app');
     const logoutBtn = document.getElementById('logout-btn');
-    const successBanner = document.getElementById('success-banner');
 
-    if (sessionStorage.getItem('cms_auth') === 'true') {
-      unlockCMS();
+    if (sessionStorage.getItem('cms_authenticated') === 'true') {
+      showCMS();
     }
 
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const u = document.getElementById('username').value.trim();
-      const p = document.getElementById('password').value.trim();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
 
-      if (u === AUTH_USER && p === AUTH_PASS) {
-        sessionStorage.setItem('cms_auth', 'true');
+      if (user === AUTH_USER && pass === AUTH_PASS) {
+        sessionStorage.setItem('cms_authenticated', 'true');
         loginError.style.display = 'none';
-        unlockCMS();
+        showCMS();
       } else {
         loginError.style.display = 'block';
       }
     });
 
     logoutBtn.addEventListener('click', () => {
-      sessionStorage.removeItem('cms_auth');
+      sessionStorage.removeItem('cms_authenticated');
       cmsApp.style.display = 'none';
       loginOverlay.style.display = 'flex';
       loginForm.reset();
     });
 
-    function unlockCMS() {
+    function showCMS() {
       loginOverlay.style.display = 'none';
       cmsApp.style.display = 'block';
     }
 
-    // CMS Master Content Schema mapped to your specific file texts
-    const siteContent = {
+    const pageData = {
       index: {
-        heroTitle: "Welcome to Our Platform",
-        heroSubtitle: "We deliver high-performance solutions designed to scale your operational workflow efficiently. Explore our background or contact our team directly.",
-        feat1Title: "Reliable Infrastructure",
-        feat1Text: "Built on solid core engineering practices to ensure high uptime and security.",
-        feat2Title: "Seamless Integration",
-        feat2Text: "Easily integrate with existing cloud and enterprise software setups.",
-        feat3Title: "Automated Workflows",
-        feat3Text: "Save operational hours by deploying fully automated deployment pipelines."
+        title: "Welcome to Our Platform",
+        subtitle: "We deliver high-performance solutions designed to scale your operational workflow efficiently. Explore our background or contact our team directly.",
+        feature1Title: "Reliable Infrastructure",
+        feature1Desc: "Built on solid core engineering practices to ensure high uptime and security.",
+        feature2Title: "Seamless Integration",
+        feature2Desc: "Easily integrate with existing cloud and enterprise software setups.",
+        feature3Title: "Automated Workflows",
+        feature3Desc: "Save operational hours by deploying fully automated deployment pipelines."
       },
       about: {
-        heading: "About Our Organization",
+        title: "About Our Organization",
         paragraph1: "Founded with a focus on reliability and core engineering excellence, we help enterprise partners structure, deploy, and automate critical digital infrastructure.",
         paragraph2: "Our multidisciplinary team bridges the gap between legacy reliability and modern automation practices, enabling scalable operations without compromising security."
       },
       contact: {
-        heading: "Contact Us",
-        subtext: "Fill out the form below and our team will get back to you within 24 hours."
+        title: "Contact Us",
+        subtitle: "Fill out the form below and our team will get back to you within 24 hours."
       }
     };
 
@@ -257,43 +254,41 @@
     const editorFields = document.getElementById('editor-fields');
     const cmsForm = document.getElementById('cms-form');
 
-    function renderFields(pageKey) {
-      const data = siteContent[pageKey];
-      let markup = '';
-
-      for (const [key, val] of Object.entries(data)) {
-        const labelText = key.replace(/([A-Z])/g, ' $1').toUpperCase();
-        markup += `
-          <div class="form-group" style="margin-bottom: 1.5rem;">
-            <label for="${key}">${labelText}</label>
-            ${val.length > 80 ? 
-              `<textarea id="${key}" name="${key}" rows="4" required>${val}</textarea>` : 
-              `<input type="text" id="${key}" name="${key}" value="${val}" required>`
+    function loadEditorFields(pageKey) {
+      const data = pageData[pageKey];
+      let html = '';
+      
+      for (const [key, value] of Object.entries(data)) {
+        const formattedLabel = key.replace(/([A-Z])/g, ' $1').toUpperCase();
+        html += `
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label for="${key}">${formattedLabel}</label>
+            ${value.length > 80 ? 
+              `<textarea id="${key}" name="${key}" required>${value}</textarea>` : 
+              `<input type="text" id="${key}" name="${key}" value="${value}" required>`
             }
           </div>
         `;
       }
-      editorFields.innerHTML = markup;
+      editorFields.innerHTML = html;
     }
 
-    renderFields(pageSelector.value);
+    loadEditorFields(pageSelector.value);
 
     pageSelector.addEventListener('change', (e) => {
-      successBanner.style.display = 'none';
-      renderFields(e.target.value);
+      loadEditorFields(e.target.value);
     });
 
     cmsForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const current = pageSelector.value;
+      const currentPage = pageSelector.value;
       const formData = new FormData(cmsForm);
-
-      for (const [k, v] of formData.entries()) {
-        siteContent[current][k] = v;
+      
+      for (const [key, value] of formData.entries()) {
+        pageData[currentPage][key] = value;
       }
 
-      successBanner.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      alert(`Successfully saved updates for ${currentPage}.html on hotak1.com!`);
     });
   </script>
 </body>
