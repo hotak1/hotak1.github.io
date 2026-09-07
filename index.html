@@ -1,150 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lee Ho Tak | Visuals & Photography</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Horizon Capital | Professional Financial & Advisory Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <header class="navbar">
-    <div class="nav-container">
-      <a href="#" class="logo">Lee Ho Tak<span>.</span></a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav class="nav-links" id="nav-links">
-        <a href="#work">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="btn-nav">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container hero-container">
-      <div class="hero-text">
-        <!-- Dynamic Status Badge -->
-        <div id="status-badge" class="status-badge">
-          <span class="status-dot"></span> <span class="status-text">Checking availability...</span>
-        </div>
-        
-        <h1>Capturing motion, structures, and moments.</h1>
-        <p>Hong Kong-based visual storyteller specializing in high-resolution stills, automotive panning, and post-production workflows.</p>
-        <div class="hero-actions">
-          <a href="#work" class="btn-primary">View Portfolio</a>
-          <a href="#contact" class="btn-secondary">Get in Touch</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000" alt="Camera Lens">
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section class="portfolio" id="work">
-    <div class="container">
-      <div class="section-header">
-        <h2>Selected Works</h2>
-        <p>A collection of recent commercial photography and motion projects.</p>
-      </div>
-
-      <!-- Dynamic Filter Buttons -->
-      <div class="filter-container" id="filter-container">
-        <button class="filter-btn active" data-filter="all">All</button>
-      </div>
-
-      <div class="grid" id="portfolio-grid">
-        <!-- Injected via JavaScript -->
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="container about-container">
-      <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=800" alt="Workspace Setup">
-      </div>
-      <div class="about-text">
-        <h2>Technical Precision Meets Visual Artistry</h2>
-        <p>Combining field experience with modern post-production pipelines to deliver high-quality assets tailored for multi-platform delivery.</p>
-        
-        <div class="gear-box">
-          <h3>Production Capabilities</h3>
-          <ul class="gear-list" id="gear-list">
-            <!-- Injected via JavaScript -->
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="contact-wrapper">
-        <div class="section-header">
-          <h2>Start a Project</h2>
-          <p>Reach out for availability, commercial assignments, or general inquiries.</p>
-        </div>
-        
-        <form class="contact-form">
-          <div class="form-row">
-            <div class="input-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" placeholder="John Doe" required>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container navbar">
+            <div class="logo">
+                <a href="#"><i class="fa-solid fa-chart-line"></i> Apex Horizon</a>
             </div>
-            
-            <div class="input-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" placeholder="john@example.com" required>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#stats">Insights</a></li>
+                    <li><a href="#contact" class="btn-nav">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
             </div>
-          </div>
-          
-          <div class="input-group">
-            <label for="subject">Project Type</label>
-            <input type="text" id="subject" placeholder="e.g. Automotive Shoot, Location Footage" required>
-          </div>
-          
-          <div class="input-group">
-            <label for="message">Message</label>
-            <textarea id="message" rows="5" placeholder="Provide details about your project scope and timeline..." required></textarea>
-          </div>
-          
-          <button type="submit" class="btn-primary btn-block">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
+        </div>
+    </header>
 
-  <!-- Image Lightbox Modal -->
-  <div class="modal" id="image-modal">
-    <button class="modal-close" id="modal-close">&times;</button>
-    <img id="modal-img" src="" alt="Enlarged view">
-  </div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <h1>Strategic Financial Solutions for Modern Markets</h1>
+            <p>Empowering institutional and individual investors with rigorous market analysis, advanced asset management, and tailored execution strategies.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">Explore Services</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-container">
-      <p>&copy; 2026 Lee Ho Tak. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#home">Back to top ↑</a>
-      </div>
-    </div>
-  </footer>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container grid-2">
+            <div class="about-text">
+                <h2>Built on Discipline, Driven by Insight</h2>
+                <p>At Apex Horizon Capital, we combine rigorous quantitative analysis with decades of market experience. Our mission is to navigate complex economic landscapes to deliver resilient growth and dependable value for our clients.</p>
+                <p>We leverage cutting-edge technology alongside disciplined investment frameworks to optimize asset allocation across global equity and alternative markets.</p>
+                <div class="features-list">
+                    <div class="feature-item"><i class="fa-solid fa-check-circle"></i> Advanced Data-Driven Modeling</div>
+                    <div class="feature-item"><i class="fa-solid fa-check-circle"></i> Strict Risk Management Protocols</div>
+                    <div class="feature-item"><i class="fa-solid fa-check-circle"></i> Dedicated Client Advisory Teams</div>
+                </div>
+            </div>
+            <div class="about-card">
+                <div class="card-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Institutional Grade Security</h3>
+                    <p>Ensuring absolute safety, transparency, and regulatory compliance across all portfolio operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Services Section -->
+    <section id="services" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Services</h2>
+                <p>Comprehensive financial capabilities built to scale with your strategic objectives.</p>
+            </div>
+            <div class="grid-3">
+                <div class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Asset Management</h3>
+                    <p>Customized portfolio construction balancing yield targets with strict downside protection frameworks.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Global Market Execution</h3>
+                    <p>Low-latency trade execution across major US, European, and Asian securities exchanges.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <h3>Research & Analytics</h3>
+                    <p>In-depth fundamental and technical reports detailing macro trends, sector performance, and equities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats-section">
+        <div class="container grid-4">
+            <div class="stat-item">
+                <h3>$2.4B+</h3>
+                <p>Assets Under Advisory</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Years of Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3>99.8%</h3>
+                <p>Execution Reliability</p>
+            </div>
+            <div class="stat-item">
+                <h3>1,200+</h3>
+                <p>Active Clients</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Connect With Our Team</h2>
+                <p>Reach out to discuss your portfolio strategy or institutional requirements.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Office Headquarters</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> Two International Finance Centre, Central, Hong Kong</p>
+                    <p><i class="fa-solid fa-phone"></i> +852 3500 0000</p>
+                    <p><i class="fa-solid fa-envelope"></i> inquiries@apexhorizoncap.com</p>
+                    <p><i class="fa-solid fa-clock"></i> Monday - Friday: 9:00 AM – 6:00 PM</p>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required placeholder="How can we assist you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Apex Horizon Capital Limited. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Regulatory Disclosures</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
