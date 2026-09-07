@@ -1,8 +1,13 @@
-/* CSS Reset & Variables */
+/* CSS Reset & Overflow Prevention */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 :root {
@@ -145,7 +150,9 @@ header {
 
 /* Hero Section */
 .hero {
-    height: 90vh;
+    min-height: 85vh;
+    height: auto;
+    padding: 6rem 0;
     background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     display: flex;
     align-items: center;
