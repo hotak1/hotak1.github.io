@@ -3,221 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>STUDIO ARCHIVE — Commercial & Fine Art Photography</title>
+  <title>CAMERA OPERATOR & DIRECTOR OF PHOTOGRAPHY</title>
   
-  <!-- Modern Clean Typography -->
+  <!-- Technical Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=JetBrains+Mono:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=4.0" />
+  <link rel="stylesheet" href="styles.css?v=5.0" />
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <header class="site-header">
-    <div class="header-container">
-      <a href="#" class="brand-logo">STUDIO <span>ARCHIVE</span></a>
-      <nav class="main-nav">
-        <a href="#work">WORK</a>
-        <a href="#services">CAPABILITIES</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact" class="nav-cta">INQUIRE</a>
-      </nav>
+  <!-- Top Camera Monitor HUD Bar -->
+  <header class="hud-header">
+    <div class="hud-left">
+      <span class="rec-dot"></span>
+      <span class="hud-tag">REC</span>
+      <span id="timecode" class="mono-font">00:00:00:00</span>
+    </div>
+    
+    <div class="hud-center">
+      <span class="brand-title">OP // DIRECTOR OF PHOTOGRAPHY & STILLS</span>
+    </div>
+
+    <div class="hud-right mono-font">
+      <span>FPS: 24.00</span>
+      <span>|</span>
+      <span>4K DCI RAW</span>
+      <span>|</span>
+      <span class="bat-status">BAT 98%</span>
     </div>
   </header>
 
   <main>
-    <!-- Executive Hero Showcase -->
-    <section class="hero-studio">
-      <div class="hero-container">
-        <div class="hero-left">
-          <span class="mono-label">SELECTED WORKS // 2024–2026</span>
-          <h1 class="hero-heading">VISUAL NARRATIVES & COMMERCIAL STILLS</h1>
-          <p class="hero-description">Specializing in high-end architectural, landscape, and editorial photography for global brands, agencies, and fine art collections.</p>
-          <div class="hero-actions">
-            <a href="#work" class="btn-primary">EXPLORE ARCHIVE</a>
-            <a href="#contact" class="btn-secondary">BOOK A SHOOT</a>
+    <!-- Viewfinder Hero Display -->
+    <section class="viewfinder-hero">
+      <div class="viewfinder-frame">
+        <!-- Viewfinder Overlay Elements -->
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <div class="crosshair"></div>
+        
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1800" alt="Camera Operator Focus" id="hero-shot">
+
+        <!-- On-Screen Display (OSD) Specs -->
+        <div class="osd-bottom">
+          <div class="osd-stat">
+            <span class="osd-label">LENS</span>
+            <span class="osd-val">35mm T1.5</span>
           </div>
+          <div class="osd-stat">
+            <span class="osd-label">SHUTTER</span>
+            <span class="osd-val">180.0°</span>
+          </div>
+          <div class="osd-stat">
+            <span class="osd-label">ISO</span>
+            <span class="osd-val">800 EI</span>
+          </div>
+          <div class="osd-stat">
+            <span class="osd-label">WB</span>
+            <span class="osd-val">5600K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-text-block">
+        <span class="mono-tag">// CREW ROLE: DIRECTOR OF PHOTOGRAPHY & CAMERA OPERATOR</span>
+        <h1>CAPTURING CINEMATIC MOTION & HIGH-RESOLUTION STILLS</h1>
+        <p>Available for narrative feature films, commercial campaigns, architectural documentations, and specialized camera rigging globally.</p>
+        <div class="hero-cta-group">
+          <a href="#shots" class="btn-hud">VIEW SHOT LIST</a>
+          <a href="#gear" class="btn-hud-outline">GEAR LOCKER</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shots & Frames Gallery -->
+    <section id="shots" class="shots-section">
+      <div class="section-hud-title">
+        <div>
+          <span class="mono-tag">// FRAME ARCHIVE</span>
+          <h2>SELECTED FRAMES & STILLS</h2>
         </div>
         
-        <div class="hero-right">
-          <div class="featured-frame" data-title="Alpine Solitude" data-exif="50mm · f/1.8 · 1/2000s · ISO 100" data-client="Editorial Series">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600" alt="Featured Work" loading="eager">
-            <div class="frame-tag font-mono">FEATURED // RELEASE 01</div>
+        <!-- Filter Bar -->
+        <div class="filter-bar mono-font">
+          <button class="filter-btn active" data-filter="all">[ALL]</button>
+          <button class="filter-btn" data-filter="commercial">[COMMERCIAL]</button>
+          <button class="filter-btn" data-filter="narrative">[NARRATIVE]</button>
+          <button class="filter-btn" data-filter="landscape">[LANDSCAPE]</button>
+        </div>
+      </div>
+
+      <!-- Shot Grid with Lens Metadata Overlays -->
+      <div class="shot-grid">
+        <div class="shot-card" data-category="landscape" data-title="Alpine Pass" data-lens="24mm Anamorphic" data-camera="ARRI Alexa Mini LF" data-exif="f/2.8 · 1/1000s · ISO 100">
+          <div class="shot-viewport">
+            <span class="frame-num mono-font">CAM A // 001</span>
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Alpine Pass" loading="lazy">
+            <div class="cam-overlay">
+              <span class="cam-tag">ARRI ALEXA MINI LF</span>
+              <span class="lens-tag">24mm Anamorphic T2.0</span>
+            </div>
+          </div>
+          <div class="shot-meta">
+            <h3>Alpine Pass</h3>
+            <p class="mono-font">Location: Swiss Alps | Exterior Daylight</p>
+          </div>
+        </div>
+
+        <div class="shot-card" data-category="commercial" data-title="Monolith Brutalism" data-lens="35mm Prime T1.4" data-camera="RED V-Raptor 8K" data-exif="f/4.0 · 1/250s · ISO 400">
+          <div class="shot-viewport">
+            <span class="frame-num mono-font">CAM A // 002</span>
+            <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Monolith Brutalism" loading="lazy">
+            <div class="cam-overlay">
+              <span class="cam-tag">RED V-RAPTOR 8K</span>
+              <span class="lens-tag">35mm Cine Prime</span>
+            </div>
+          </div>
+          <div class="shot-meta">
+            <h3>Monolith Brutalism</h3>
+            <p class="mono-font">Location: London | Architecture Series</p>
+          </div>
+        </div>
+
+        <div class="shot-card" data-category="narrative" data-title="Fog & Shadows" data-lens="50mm Vintage Glass" data-camera="Sony Venice 2" data-exif="f/1.8 · 1/125s · ISO 1250">
+          <div class="shot-viewport">
+            <span class="frame-num mono-font">CAM B // 003</span>
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Fog & Shadows" loading="lazy">
+            <div class="cam-overlay">
+              <span class="cam-tag">SONY VENICE 2</span>
+              <span class="lens-tag">50mm Speed Panchro</span>
+            </div>
+          </div>
+          <div class="shot-meta">
+            <h3>Fog & Shadows</h3>
+            <p class="mono-font">Location: Pacific NW | Narrative Feature</p>
+          </div>
+        </div>
+
+        <div class="shot-card" data-category="commercial" data-title="Reflective Horizon" data-lens="85mm Portrait Prime" data-camera="Hasselblad X2D" data-exif="f/2.8 · 1/2000s · ISO 64">
+          <div class="shot-viewport">
+            <span class="frame-num mono-font">CAM A // 004</span>
+            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Reflective Horizon" loading="lazy">
+            <div class="cam-overlay">
+              <span class="cam-tag">HASSELBLAD X2D 100C</span>
+              <span class="lens-tag">85mm f/1.8 Prime</span>
+            </div>
+          </div>
+          <div class="shot-meta">
+            <h3>Reflective Horizon</h3>
+            <p class="mono-font">Location: Iceland | Commercial Stills</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Client / Press Banner -->
-    <section class="client-banner">
-      <div class="banner-container">
-        <span class="mono-label">REPRESENTED IN & PUBLISHED BY</span>
-        <div class="client-list">
-          <span>VOGUE</span>
-          <span>·</span>
-          <span>ARCHITECTURAL DIGEST</span>
-          <span>·</span>
-          <span>HASSELBLAD IN FOCUS</span>
-          <span>·</span>
-          <span>LEICA GALLERY</span>
-          <span>·</span>
-          <span>MONOCLE</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Work Portfolio Section -->
-    <section id="work" class="portfolio-section">
-      <div class="portfolio-header">
-        <div>
-          <span class="mono-label">// CATALOGUE</span>
-          <h2 class="section-title">PROJECT ARCHIVE</h2>
+    <!-- Camera Equipment / Gear Locker -->
+    <section id="gear" class="gear-section">
+      <div class="gear-container">
+        <div class="gear-header">
+          <span class="mono-tag">// EQUIPMENT INVENTORY</span>
+          <h2>GEAR LOCKER & RIGS</h2>
+          <p>In-house camera packages, cinema primes, wireless video monitoring, and camera stabilization equipment ready for immediate deployment.</p>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="category-filters">
-          <button class="filter-btn active" data-filter="all">ALL</button>
-          <button class="filter-btn" data-filter="architecture">ARCHITECTURE</button>
-          <button class="filter-btn" data-filter="landscape">LANDSCAPE</button>
-          <button class="filter-btn" data-filter="editorial">EDITORIAL</button>
-        </div>
-      </div>
-
-      <!-- Asymmetrical Professional Masonry Layout -->
-      <div class="masonry-grid">
-        <div class="masonry-item tall" data-category="landscape" data-title="Highland Spine" data-exif="24mm · f/8.0 · 1/500s" data-client="Outdoor Commission">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Highland Spine" loading="lazy">
-          <div class="item-info">
-            <h3>Highland Spine</h3>
-            <p>Landscape / Fine Art</p>
+        <div class="gear-grid mono-font">
+          <div class="gear-card">
+            <div class="gear-icon">🎥</div>
+            <h3>CAMERA BODIES</h3>
+            <ul>
+              <li>ARRI Alexa Mini LF Package</li>
+              <li>RED V-Raptor 8K VV</li>
+              <li>Sony Venice 2 8K</li>
+              <li>Hasselblad X2D 100C</li>
+            </ul>
           </div>
-        </div>
 
-        <div class="masonry-item wide" data-category="architecture" data-title="Concrete Symmetry" data-exif="35mm · f/4.0 · 1/250s" data-client="Architectural Firm">
-          <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1400" alt="Concrete Symmetry" loading="lazy">
-          <div class="item-info">
-            <h3>Concrete Symmetry</h3>
-            <p>Architecture / Structure</p>
+          <div class="gear-card">
+            <div class="gear-icon">🔍</div>
+            <h3>OPTICS & GLASS</h3>
+            <ul>
+              <li>ARRI/Zeiss Master Anamorphic Set</li>
+              <li>Cooke Speed Panchro Primes</li>
+              <li>Canon K35 Vintage Cine Lenses</li>
+              <li>Leica M 0.95 Noctilux Glass</li>
+            </ul>
           </div>
-        </div>
 
-        <div class="masonry-item" data-category="editorial" data-title="Atmosphere III" data-exif="85mm · f/1.4 · 1/1600s" data-client="Fashion Lookbook">
-          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Atmosphere III" loading="lazy">
-          <div class="item-info">
-            <h3>Atmosphere III</h3>
-            <p>Editorial / Portrait</p>
-          </div>
-        </div>
-
-        <div class="masonry-item" data-category="architecture" data-title="Monolith in Glass" data-exif="24mm · f/11 · 1/125s" data-client="Design Studio">
-          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200" alt="Monolith in Glass" loading="lazy">
-          <div class="item-info">
-            <h3>Monolith in Glass</h3>
-            <p>Architecture / Commercial</p>
-          </div>
-        </div>
-
-        <div class="masonry-item tall" data-category="landscape" data-title="Silent Forest" data-exif="50mm · f/2.0 · 1/1000s" data-client="Personal Gallery">
-          <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Silent Forest" loading="lazy">
-          <div class="item-info">
-            <h3>Silent Forest</h3>
-            <p>Landscape / Nature</p>
-          </div>
-        </div>
-
-        <div class="masonry-item wide" data-category="editorial" data-title="Chiaroscuro Light" data-exif="70mm · f/2.8 · 1/800s" data-client="Magazine Cover">
-          <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1400" alt="Chiaroscuro Light" loading="lazy">
-          <div class="item-info">
-            <h3>Chiaroscuro Light</h3>
-            <p>Editorial / Fine Art</p>
+          <div class="gear-card">
+            <div class="gear-icon">⚙️</div>
+            <h3>SUPPORT & RIGGING</h3>
+            <ul>
+              <li>DJI Ronin 2 3-Axis Gimbal</li>
+              <li>Easyrig Vario 5 + Serene</li>
+              <li>Teradek Bolt 4K Wireless Video</li>
+              <li>O'Connor 2575D Fluid Head</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services / Capabilities -->
-    <section id="services" class="services-section">
-      <div class="services-container">
-        <div class="services-left">
-          <span class="mono-label">// CORE SERVICES</span>
-          <h2>COMMERCIAL & ARTISTIC CAPABILITIES</h2>
-          <p>Full-service production from concept design to medium-format capture and high-resolution color grading.</p>
-        </div>
+    <!-- Production Booking Section -->
+    <section id="booking" class="booking-section">
+      <div class="booking-box">
+        <span class="mono-tag">// PRODUCTION INQUIRIES</span>
+        <h2>BOOK CAMERA OPERATOR & EQUIPMENT</h2>
+        <p>Direct inquiries for DP services, camera operating, or specialized aerial / underwater filming packages.</p>
 
-        <div class="services-grid">
-          <div class="service-card">
-            <span class="service-num font-mono">01</span>
-            <h3>Architectural & Spaces</h3>
-            <p>Exterior, interior, and structural documentations utilizing perspective control optical systems.</p>
+        <form class="hud-form" id="bookingForm">
+          <div class="form-grid">
+            <input type="text" placeholder="DIRECTOR / PRODUCER NAME" required>
+            <input type="email" placeholder="PRODUCTION EMAIL" required>
           </div>
-          <div class="service-card">
-            <span class="service-num font-mono">02</span>
-            <h3>Commercial Campaigns</h3>
-            <p>High-end visual branding, lookbooks, product stills, and location shoot execution.</p>
-          </div>
-          <div class="service-card">
-            <span class="service-num font-mono">03</span>
-            <h3>Fine Art Licensing</h3>
-            <p>Limited-edition museum-grade gallery prints and digital publication permissions.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact & Booking Section -->
-    <section id="contact" class="contact-section">
-      <div class="contact-container">
-        <span class="mono-label">// INQUIRIES & COMMISSIONS</span>
-        <h2>START A PROJECT</h2>
-        <p>Available for commercial bookings, licensing, and gallery exhibitions globally.</p>
-
-        <form class="contact-form" id="contactForm">
-          <div class="form-row">
-            <input type="text" placeholder="YOUR NAME" required>
-            <input type="email" placeholder="EMAIL ADDRESS" required>
-          </div>
-          <div class="form-row">
-            <input type="text" placeholder="PROJECT / ORGANIZATION">
+          <div class="form-grid">
+            <input type="text" placeholder="PROJECT NAME / AGENCY">
             <select required>
-              <option value="" disabled selected>SELECT SERVICE</option>
-              <option value="commercial">Commercial Campaign</option>
-              <option value="architecture">Architectural Shoot</option>
-              <option value="licensing">Fine Art Print / Licensing</option>
+              <option value="" disabled selected>SELECT ROLE REQUIRED</option>
+              <option value="dp">Director of Photography (DP)</option>
+              <option value="operator">Camera Operator (A/B Cam)</option>
+              <option value="stills">Commercial Stills Photographer</option>
             </select>
           </div>
-          <textarea rows="4" placeholder="PROJECT DETAILS & TIMELINE" required></textarea>
-          <button type="submit" class="btn-primary">SUBMIT INQUIRY</button>
+          <textarea rows="4" placeholder="SHOOT DATES, LOCATIONS & CAMERA SPECIFICATIONS" required></textarea>
+          <button type="submit" class="btn-hud-submit">TRANSMIT PRODUCTION INQUIRY</button>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-container">
-      <p>&copy; 2026 STUDIO ARCHIVE. ALL RIGHTS RESERVED.</p>
-      <div class="footer-links">
-        <a href="#">INSTAGRAM</a>
-        <a href="#">BEHANCE</a>
-        <a href="#">LINKEDIN</a>
-      </div>
+  <footer class="hud-footer mono-font">
+    <p>&copy; 2026 CAMERA OPERATOR ARCHIVE. ALL RIGHTS RESERVED.</p>
+    <div class="footer-status">
+      <span class="status-indicator"></span> SYSTEM STATUS: ONLINE
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
+  <!-- Viewfinder HD Lightbox -->
   <div id="lightbox" class="lightbox-modal" aria-hidden="true">
-    <button class="lightbox-close" aria-label="Close View">&times;</button>
-    <div class="lightbox-content">
-      <img id="lightbox-img" src="" alt="Full view">
-      <div class="lightbox-details">
-        <h3 id="lightbox-title">Title</h3>
-        <p id="lightbox-client" class="mono-label">Client</p>
-        <p id="lightbox-exif" class="mono-label">EXIF</p>
+    <button class="lightbox-close">&times;</button>
+    <div class="lightbox-frame">
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      
+      <img id="lightbox-img" src="" alt="Expanded View">
+      
+      <div class="lightbox-osd mono-font">
+        <h3 id="lightbox-title">TITLE</h3>
+        <p id="lightbox-cam">CAMERA: ARRI ALEXA MINI LF</p>
+        <p id="lightbox-lens">LENS: 35mm ANAMORPHIC</p>
+        <p id="lightbox-exif">EXIF: f/2.8 · 1/1000s · ISO 100</p>
       </div>
     </div>
   </div>
 
-  <script src="script.js?v=4.0"></script>
+  <script src="script.js?v=5.0"></script>
 </body>
 </html>
