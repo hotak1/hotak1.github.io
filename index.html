@@ -3,80 +3,199 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Lens & Aperture — HD Photography Portfolio</title>
+  <title>LUMEN & FRAME — Fine Art & Commercial Photography</title>
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Glassmorphism Header -->
   <header class="navbar">
-    <a href="#" class="logo">LENS & VISION</a>
+    <a href="#" class="logo">
+      <span class="brand-mark"></span>
+      <span class="brand-name">LUMEN <em>&</em> FRAME</span>
+    </a>
     <nav class="nav-links">
       <a href="#hero">Featured</a>
-      <a href="#gallery">Gallery</a>
+      <a href="#gallery">Archive</a>
       <a href="#about">About</a>
     </nav>
   </header>
 
   <main>
-    <!-- Hero Section: Left-to-Right Auto-Moving Continuous Marquee -->
+    <!-- Hero Section: Fade-Edge Left-to-Right Continuous Marquee -->
     <section id="hero" class="hero-section">
       <div class="hero-header">
-        <h1>SELECTED SHOTS</h1>
-        <p>Continuous showcase / Camera roll</p>
+        <span class="section-tag">CURATED SHOWCASE</span>
+        <h1>FEATURED RELEASES</h1>
+        <p class="hero-subtext">35mm & Medium Format Digital Captures</p>
       </div>
 
-      <div class="marquee-container">
+      <div class="marquee-wrapper">
         <div class="marquee-track">
-          <!-- FIRST SET OF PHOTOS -->
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Landscape 1" loading="eager"></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Landscape 2" loading="eager"></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Landscape 3" loading="eager"></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Landscape 4" loading="eager"></div>
+          <!-- FIRST SET OF PHOTOS (Include EXIF & Titles) -->
+          <div class="photo-card" data-title="Alpine Dawn" data-exif="24mm · f/2.8 · 1/1000s · ISO 100">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Alpine Dawn" loading="eager">
+            <div class="card-overlay"><span class="card-title">Alpine Dawn</span></div>
+          </div>
+          <div class="photo-card" data-title="Nordic Horizon" data-exif="35mm · f/4.0 · 1/500s · ISO 200">
+            <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Nordic Horizon" loading="eager">
+            <div class="card-overlay"><span class="card-title">Nordic Horizon</span></div>
+          </div>
+          <div class="photo-card" data-title="Misty Wilderness" data-exif="50mm · f/1.8 · 1/2500s · ISO 100">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Misty Wilderness" loading="eager">
+            <div class="card-overlay"><span class="card-title">Misty Wilderness</span></div>
+          </div>
+          <div class="photo-card" data-title="Emerald Valley" data-exif="85mm · f/1.4 · 1/1600s · ISO 64">
+            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Emerald Valley" loading="eager">
+            <div class="card-overlay"><span class="card-title">Emerald Valley</span></div>
+          </div>
           
-          <!-- DUPLICATE SET (Required for seamless continuous infinite loop) -->
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Landscape 1" loading="eager"></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Landscape 2" loading="eager"></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Landscape 3" loading="eager"></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Landscape 4" loading="eager"></div>
+          <!-- DUPLICATE SET (For seamless infinite loop) -->
+          <div class="photo-card" data-title="Alpine Dawn" data-exif="24mm · f/2.8 · 1/1000s · ISO 100">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Alpine Dawn" loading="eager">
+            <div class="card-overlay"><span class="card-title">Alpine Dawn</span></div>
+          </div>
+          <div class="photo-card" data-title="Nordic Horizon" data-exif="35mm · f/4.0 · 1/500s · ISO 200">
+            <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Nordic Horizon" loading="eager">
+            <div class="card-overlay"><span class="card-title">Nordic Horizon</span></div>
+          </div>
+          <div class="photo-card" data-title="Misty Wilderness" data-exif="50mm · f/1.8 · 1/2500s · ISO 100">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Misty Wilderness" loading="eager">
+            <div class="card-overlay"><span class="card-title">Misty Wilderness</span></div>
+          </div>
+          <div class="photo-card" data-title="Emerald Valley" data-exif="85mm · f/1.4 · 1/1600s · ISO 64">
+            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Emerald Valley" loading="eager">
+            <div class="card-overlay"><span class="card-title">Emerald Valley</span></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Main Portfolio Gallery Section -->
     <section id="gallery" class="gallery-section">
-      <div class="section-title">
-        <h2>PORTFOLIO GRID</h2>
-        <p>Tap or click any photograph to expand in Full HD</p>
+      <div class="gallery-controls">
+        <div class="section-title">
+          <span class="section-tag">CATALOG</span>
+          <h2>PORTFOLIO ARCHIVE</h2>
+        </div>
+        
+        <!-- Interactive Category Filters -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">ALL SHOTS</button>
+          <button class="filter-btn" data-filter="landscape">LANDSCAPE</button>
+          <button class="filter-btn" data-filter="urban">URBAN</button>
+          <button class="filter-btn" data-filter="editorial">EDITORIAL</button>
+        </div>
       </div>
 
+      <!-- Uniform 3:2 Photo Grid -->
       <div class="gallery-grid">
-        <!-- Replace src with your local image path, e.g., images/my-photo-1.jpg -->
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600" alt="HD Photo 1" loading="lazy"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1600" alt="HD Photo 2" loading="lazy"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1600" alt="HD Photo 3" loading="lazy"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1600" alt="HD Photo 4" loading="lazy"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600" alt="HD Photo 5" loading="lazy"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1600" alt="HD Photo 6" loading="lazy"></div>
+        <div class="gallery-item" data-category="landscape" data-title="Alpine Peak" data-exif="24mm · f/5.6 · 1/500s · ISO 100">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600" alt="Alpine Peak" loading="lazy">
+          <div class="item-overlay">
+            <div class="item-info">
+              <h3>Alpine Peak</h3>
+              <p class="exif-data">24mm · f/5.6 · 1/500s · ISO 100</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="urban" data-title="Metropolis Lights" data-exif="35mm · f/1.8 · 1/125s · ISO 800">
+          <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1600" alt="Metropolis Lights" loading="lazy">
+          <div class="item-overlay">
+            <div class="item-info">
+              <h3>Metropolis Lights</h3>
+              <p class="exif-data">35mm · f/1.8 · 1/125s · ISO 800</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="landscape" data-title="Silence of Pines" data-exif="50mm · f/2.0 · 1/2000s · ISO 100">
+          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1600" alt="Silence of Pines" loading="lazy">
+          <div class="item-overlay">
+            <div class="item-info">
+              <h3>Silence of Pines</h3>
+              <p class="exif-data">50mm · f/2.0 · 1/2000s · ISO 100</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="editorial" data-title="Monochrome Lines" data-exif="85mm · f/1.4 · 1/1000s · ISO 100">
+          <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1600" alt="Monochrome Lines" loading="lazy">
+          <div class="item-overlay">
+            <div class="item-info">
+              <h3>Monochrome Lines</h3>
+              <p class="exif-data">85mm · f/1.4 · 1/1000s · ISO 100</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="urban" data-title="Concrete Symmetry" data-exif="18mm · f/8.0 · 1/250s · ISO 200">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600" alt="Concrete Symmetry" loading="lazy">
+          <div class="item-overlay">
+            <div class="item-info">
+              <h3>Concrete Symmetry</h3>
+              <p class="exif-data">18mm · f/8.0 · 1/250s · ISO 200</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="editorial" data-title="Mist & Light" data-exif="70mm · f/2.8 · 1/800s · ISO 160">
+          <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1600" alt="Mist & Light" loading="lazy">
+          <div class="item-overlay">
+            <div class="item-info">
+              <h3>Mist & Light</h3>
+              <p class="exif-data">70mm · f/2.8 · 1/800s · ISO 160</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
-      <h2>ABOUT THE GEAR & VISION</h2>
-      <p>Captured with high-resolution full-frame sensors and prime glass. Dedicated to high-dynamic-range landscape, architectural, and fine art photography.</p>
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-tag">PHILOSOPHY</span>
+          <h2>THE OPTICAL GLASS</h2>
+          <p>Every frame is processed to preserve original high-dynamic range, sharpness, and tonal balance. Utilizing medium format digital equipment and cinema prime lenses.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-box">
+            <span class="stat-number">61MP</span>
+            <span class="stat-label">FULL RESOLUTION</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">RAW COLOR ACCURACY</span>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Photography Portfolio. Built for high resolution displays.</p>
+    <p>&copy; 2026 LUMEN & FRAME. All images protected by international copyright law.</p>
   </footer>
 
-  <!-- Lightbox Modal for Full HD Viewing -->
+  <!-- Ultra-Sleek Full HD Lightbox with EXIF Info -->
   <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
     <button class="lightbox-close" aria-label="Close Lightbox">&times;</button>
-    <img class="lightbox-content" id="lightbox-img" alt="Full view high resolution">
+    
+    <div class="lightbox-wrapper">
+      <img class="lightbox-content" id="lightbox-img" alt="Full View">
+      <div class="lightbox-caption">
+        <h3 id="lightbox-title">Photograph</h3>
+        <p id="lightbox-exif" class="exif-data">EXIF Data Loading...</p>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
