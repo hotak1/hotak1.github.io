@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alex Rivera — Software Engineer</title>
+<title>Website Content Editor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -19,7 +19,6 @@
   }
 
   * { box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -32,18 +31,10 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  a {
-    color: var(--brass);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-    transition: color 0.15s ease;
-  }
-
+  a { color: var(--brass); text-decoration-thickness: 1px; text-underline-offset: 3px; }
   a:hover { color: var(--forest); }
-
-  a:focus-visible {
-    outline: 2px solid var(--forest);
-    outline-offset: 2px;
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { 
+    outline: 2px solid var(--forest); outline-offset: 2px; 
   }
 
   .layout {
@@ -54,7 +45,6 @@
     min-height: 100vh;
   }
 
-  /* Sidebar Navigation */
   nav.side {
     border-right: 1px solid var(--rule);
     padding: 64px 28px 40px 0;
@@ -67,7 +57,6 @@
   .nav-name {
     font-family: "IBM Plex Mono", monospace;
     font-size: 13px;
-    letter-spacing: 0.01em;
     color: var(--ink);
     margin: 0 0 6px;
     font-weight: 500;
@@ -93,16 +82,9 @@
     display: inline-block;
   }
 
-  nav.side a:hover {
-    color: var(--forest);
-    border-left-color: var(--forest);
-  }
+  nav.side a.active, nav.side a:hover { color: var(--forest); border-left-color: var(--forest); }
 
-  /* Main Content Area */
-  main {
-    padding: 64px 40px 100px 44px;
-    max-width: 760px;
-  }
+  main { padding: 64px 40px 100px 44px; max-width: 760px; }
 
   h1 {
     font-size: clamp(2.1rem, 4vw, 2.7rem);
@@ -115,81 +97,91 @@
     font-size: 1.15rem;
     color: var(--umber);
     max-width: 48ch;
-    margin: 0 0 24px;
-  }
-
-  .meta-tag {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    color: var(--brass);
-    margin-bottom: 6px;
-    display: block;
+    margin: 0 0 36px;
   }
 
   h2 {
     font-size: 1.05rem;
     font-weight: 600;
-    margin: 56px 0 24px;
+    margin: 40px 0 24px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--rule);
-    font-family: "IBM Plex Mono", monospace;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
   }
 
-  p {
-    max-width: 68ch;
-    margin: 0 0 16px;
-  }
+  .form-group { margin-bottom: 24px; }
 
-  /* Timeline & Entry Lists */
-  .timeline-item, .project-item {
-    margin-bottom: 32px;
-  }
-
-  .item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 4px;
-  }
-
-  .item-title {
-    font-weight: 600;
-    font-size: 1.05rem;
-  }
-
-  .item-meta {
+  label {
+    display: block;
     font-family: "IBM Plex Mono", monospace;
     font-size: 12px;
     color: var(--umber);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
   }
 
-  .item-sub {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    color: var(--brass);
-    margin-bottom: 8px;
+  input[type="text"].content-input, textarea {
+    width: 100%;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    padding: 10px 12px;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 17px;
+    line-height: 1.65;
   }
 
-  /* Contact List */
-  .contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .contact-list li {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 12px;
+  input[type="password"], input.mono-input, select {
+    width: 100%;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    padding: 10px 12px;
     font-family: "IBM Plex Mono", monospace;
     font-size: 13px;
   }
 
-  .contact-label {
-    width: 80px;
+  select:focus, input:focus, textarea:focus {
+    background: #ffffff;
+    border-color: var(--brass);
+  }
+
+  textarea { resize: vertical; min-height: 110px; }
+
+  .btn {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    padding: 10px 20px;
+    border: 1px solid var(--forest);
+    background: var(--forest);
+    color: var(--paper);
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .btn:hover { background: var(--ink); border-color: var(--ink); }
+
+  .btn-secondary {
+    background: transparent;
     color: var(--umber);
+    border-color: var(--rule);
+  }
+
+  .btn-secondary:hover { background: var(--parchment); color: var(--ink); border-color: var(--brass); }
+
+  .status-msg {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--forest);
+    background: #f2f6f3;
+    border: 1px solid #c2d6c7;
+    padding: 10px 14px;
+    margin-bottom: 24px;
+    display: none;
   }
 
   footer {
@@ -221,151 +213,161 @@
 <body>
 
 <div class="layout">
-  <!-- SIDEBAR NAVIGATION -->
-  <nav class="side" aria-label="Main navigation">
-    <p class="nav-name" data-cms="nav.navName">Alex Rivera</p>
-    <p class="nav-role" data-cms="nav.navRole">Software Engineer</p>
+  <nav class="side" aria-label="CMS navigation">
+    <p class="nav-name" id="sidebar-name">Alex Rivera</p>
+    <p class="nav-role">CMS Workspace</p>
     <ul>
-      <li><a href="#about" data-cms="nav.menuLink1">About</a></li>
-      <li><a href="#work" data-cms="nav.menuLink2">Work</a></li>
-      <li><a href="#projects" data-cms="nav.menuLink3">Projects</a></li>
-      <li><a href="#contact" data-cms="nav.menuLink4">Contact</a></li>
+      <li><a href="../index.html">← Main Site</a></li>
+      <li><a href="#" class="active">Content Editor</a></li>
     </ul>
   </nav>
 
-  <!-- MAIN CONTENT -->
   <main>
-    <!-- HERO SECTION -->
-    <section id="hero">
-      <h1 data-cms="hero.heroHeading">Building systems that hold up under real use.</h1>
-      <p class="subtitle" data-cms="hero.heroThesis">Backend-leaning software engineer with eight years building infrastructure, APIs, and the occasional interface, for teams that need things to keep working after launch day.</p>
-      <span class="meta-tag" data-cms="hero.locationMeta">Taipei, Taiwan</span>
-      <span class="meta-tag" data-cms="hero.availabilityMeta">Available for select contract work</span>
-    </section>
+    <section id="cms-section">
+      <h1>Website Content Editor</h1>
+      <p class="subtitle">Select a section to modify its headings, paragraphs, and entries.</p>
 
-    <!-- ABOUT SECTION -->
-    <section id="about">
-      <h2 data-cms="about.sectionTitle">About</h2>
-      <p data-cms="about.paragraph1">I spend most of my time in Go and TypeScript, working on services that sit close to data — queues, migrations, the parts of a system that are unglamorous until they break. Before that, I spent three years doing infrastructure work at a logistics company, which is where I learned to distrust anything that hasn't been tested under load.</p>
-      <p data-cms="about.paragraph2">Outside of client work, I maintain a couple of small open-source tools and write occasionally about database internals and the tradeoffs behind boring technology.</p>
-    </section>
+      <div id="save-status" class="status-msg">Changes saved successfully and live website updated!</div>
 
-    <!-- WORK SECTION -->
-    <section id="work">
-      <h2 data-cms="work.sectionTitle">Work</h2>
-      
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title" data-cms="work.job1Title">Senior Software Engineer</span>
-          <span class="item-meta" data-cms="work.job1Period">2022 — Present</span>
-        </div>
-        <div class="item-sub" data-cms="work.job1Org">Northbeam Systems</div>
-        <p data-cms="work.job1Desc">Lead engineer on the payments infrastructure team. Rebuilt the settlement pipeline to cut reconciliation errors by a wide margin, and introduced schema-versioning practices now used across four teams.</p>
+      <div class="form-group">
+        <label for="target-section">Target Section</label>
+        <select id="target-section">
+          <option value="all">All Sections (Full Page)</option>
+          <option value="hero">Hero & Introduction</option>
+          <option value="about">About</option>
+          <option value="work">Work Timeline</option>
+          <option value="projects">Projects Listing</option>
+          <option value="contact">Contact Information</option>
+          <option value="footer">Footer Copy</option>
+        </select>
       </div>
 
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title" data-cms="work.job2Title">Software Engineer</span>
-          <span class="item-meta" data-cms="work.job2Period">2019 — 2022</span>
+      <form id="cms-form">
+        <h2>Edit Section Fields</h2>
+        <div id="editor-fields"></div>
+
+        <div style="display: flex; gap: 12px; margin-top: 36px;">
+          <button type="submit" class="btn">Save Content</button>
+          <button type="button" id="reset-btn" class="btn btn-secondary">Reset to Default</button>
         </div>
-        <div class="item-sub" data-cms="work.job2Org">Ferrovia Logistics</div>
-        <p data-cms="work.job2Desc">Built and operated the routing service handling live fleet data for a mid-size delivery network. Moved the team from nightly batch jobs to a streaming pipeline.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title" data-cms="work.job3Title">Junior Developer</span>
-          <span class="item-meta" data-cms="work.job3Period">2017 — 2019</span>
-        </div>
-        <div class="item-sub" data-cms="work.job3Org">Studio Marlowe</div>
-        <p data-cms="work.job3Desc">First engineering role, split between client web work and internal tooling for a small design studio.</p>
-      </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects">
-      <h2 data-cms="projects.sectionTitle">Projects</h2>
-
-      <div class="project-item">
-        <div class="item-header">
-          <span class="item-title" data-cms="projects.proj1Title">Ledgerline</span>
-          <span class="item-meta" data-cms="projects.proj1Year">2026</span>
-        </div>
-        <div class="item-sub" data-cms="projects.proj1Stack">Go · PostgreSQL · gRPC</div>
-        <p data-cms="projects.proj1Desc">An append-only ledger library for services that need auditable state changes without adopting a full event-sourcing framework.</p>
-      </div>
-
-      <div class="project-item">
-        <div class="item-header">
-          <span class="item-title" data-cms="projects.proj2Title">Quietqueue</span>
-          <span class="item-meta" data-cms="projects.proj2Year">2025</span>
-        </div>
-        <div class="item-sub" data-cms="projects.proj2Stack">TypeScript · Redis</div>
-        <p data-cms="projects.proj2Desc">A minimal job queue built for small teams who found existing options too heavy for their traffic. Around 400 stars on GitHub.</p>
-      </div>
-
-      <div class="project-item">
-        <div class="item-header">
-          <span class="item-title" data-cms="projects.proj3Title">Fieldnotes</span>
-          <span class="item-meta" data-cms="projects.proj3Year">2023</span>
-        </div>
-        <div class="item-sub" data-cms="projects.proj3Stack">Python · SQLite</div>
-        <p data-cms="projects.proj3Desc">A command-line tool for logging and querying incident postmortems, built out of frustration with existing wiki-based systems.</p>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-      <h2 data-cms="contact.sectionTitle">Contact</h2>
-      <ul class="contact-list">
-        <li>
-          <span class="contact-label" data-cms="contact.emailLabel">Email</span>
-          <a href="mailto:alex@example.com" data-cms="contact.emailValue">alex@example.com</a>
-        </li>
-        <li>
-          <span class="contact-label" data-cms="contact.githubLabel">GitHub</span>
-          <a href="https://github.com/alexrivera" target="_blank" rel="noopener" data-cms="contact.githubValue">github.com/alexrivera</a>
-        </li>
-        <li>
-          <span class="contact-label" data-cms="contact.linkedinLabel">LinkedIn</span>
-          <a href="https://linkedin.com/in/alexrivera" target="_blank" rel="noopener" data-cms="contact.linkedinValue">linkedin.com/in/alexrivera</a>
-        </li>
-      </ul>
+      </form>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer data-cms="footer.footerText">Last updated September 2026</footer>
+  <footer>CMS Workspace · Alex Rivera</footer>
 </div>
 
-<!-- DYNAMIC CONTENT RENDERER -->
 <script>
-  async function loadLiveContent() {
-    try {
-      const response = await fetch('content.json');
-      if (!response.ok) return;
-      const data = await response.json();
+  let siteContent = {};
 
-      document.querySelectorAll('[data-cms]').forEach(el => {
-        const keyPath = el.getAttribute('data-cms').split('.');
-        const section = keyPath[0];
-        const field = keyPath[1];
+  const sectionLabels = {
+    hero: "Hero & Introduction",
+    about: "About",
+    work: "Work Timeline",
+    projects: "Projects Listing",
+    contact: "Contact Information",
+    footer: "Footer Copy"
+  };
 
-        if (data[section] && data[section][field] !== undefined) {
-          el.textContent = data[section][field];
+  const targetSelect = document.getElementById('target-section');
+  const editorFields = document.getElementById('editor-fields');
+  const cmsForm = document.getElementById('cms-form');
+  const saveStatus = document.getElementById('save-status');
+  const resetBtn = document.getElementById('reset-btn');
 
-          // Auto-update mailto links if email changes
-          if (el.tagName === 'A' && el.getAttribute('href')?.startsWith('mailto:')) {
-            el.setAttribute('href', `mailto:${data[section][field]}`);
-          }
-        }
-      });
-    } catch (error) {
-      console.log('Serving default HTML content.');
+  async function init() {
+    // 1. Try reading localStorage
+    const saved = localStorage.getItem('siteContent');
+    if (saved) {
+      try { siteContent = JSON.parse(saved); } catch(e){}
     }
+
+    // 2. Fallback to content.json if empty
+    if (!siteContent || Object.keys(siteContent).length === 0) {
+      try {
+        const res = await fetch('../content.json?t=' + Date.now());
+        if (res.ok) {
+          siteContent = await res.json();
+        }
+      } catch (e) {
+        console.error('Failed to load initial json', e);
+      }
+    }
+
+    renderFields();
   }
 
-  document.addEventListener('DOMContentLoaded', loadLiveContent);
+  function renderFields() {
+    const selected = targetSelect.value;
+    let html = '';
+
+    for (const [secKey, fields] of Object.entries(siteContent)) {
+      if (selected !== 'all' && selected !== secKey) continue;
+
+      if (selected === 'all') {
+        html += `<h2 style="margin-top: 32px;">${sectionLabels[secKey] || secKey.toUpperCase()}</h2>`;
+      }
+
+      for (const [key, val] of Object.entries(fields)) {
+        const fieldId = `${secKey}__${key}`;
+        const label = key.replace(/([A-Z0-9])/g, ' $1').toUpperCase();
+        const isLong = String(val).length > 50;
+
+        html += `
+          <div class="form-group">
+            <label for="${fieldId}">${label}</label>
+            ${isLong ? 
+              `<textarea id="${fieldId}" name="${fieldId}">${val}</textarea>` : 
+              `<input type="text" id="${fieldId}" name="${fieldId}" value="${val}" class="content-input">`
+            }
+          </div>
+        `;
+      }
+    }
+
+    editorFields.innerHTML = html;
+  }
+
+  targetSelect.addEventListener('change', renderFields);
+
+  cmsForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(cmsForm);
+
+    // Read current form entries into siteContent dictionary
+    for (const [fieldId, val] of formData.entries()) {
+      const [secKey, key] = fieldId.split('__');
+      if (siteContent[secKey] && siteContent[secKey][key] !== undefined) {
+        siteContent[secKey][key] = val;
+      }
+    }
+
+    // Save directly to localStorage for immediate availability on index.html
+    localStorage.setItem('siteContent', JSON.stringify(siteContent));
+
+    // Attempt saving to PHP server if save.php exists
+    try {
+      await fetch('save.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(siteContent)
+      });
+    } catch(err) {
+      // Local execution fallback
+    }
+
+    saveStatus.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    if (confirm("Reset all content back to defaults?")) {
+      localStorage.removeItem('siteContent');
+      location.reload();
+    }
+  });
+
+  init();
 </script>
 
 </body>

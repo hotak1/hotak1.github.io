@@ -1,8 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-// Get raw JSON POST data
-$inputData = file_get_contents('php_input');
+$inputData = file_get_contents('php://input');
 
 if (!$inputData) {
     http_response_code(400);
@@ -10,12 +9,11 @@ if (!$inputData) {
     exit;
 }
 
-// Write to content.json in root folder
 $filePath = '../content.json';
 if (file_put_contents($filePath, $inputData)) {
-    echo json_encode(["status" => "success", "message" => "Saved successfully."]);
+    echo json_encode(["status" => "success", "message" => "content.json updated successfully."]);
 } else {
     http_response_code(500);
-    echo json_encode(["status" => "error", "message" => "Failed to write to content.json."]);
+    echo json_encode(["status" => "error", "message" => "Unable to write to file."]);
 }
 ?>

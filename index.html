@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
+  :root {
     --paper: #FAF8F4;
     --ink: #1C1A17;
     --umber: #5C4A3A;
@@ -16,14 +16,12 @@
     --parchment: #E8E2D6;
     --forest: #2E4034;
     --rule: #D8D0C0;
-    --max-w: 640px;
   }
 
-  *{ box-sizing: border-box; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
 
-  html{ scroll-behavior: smooth; }
-
-  body{
+  body {
     margin: 0;
     background: var(--paper);
     color: var(--ink);
@@ -33,11 +31,17 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  a{ color: var(--brass); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:hover{ color: var(--forest); }
-  a:focus-visible, button:focus-visible{ outline: 2px solid var(--forest); outline-offset: 3px; }
+  a {
+    color: var(--brass);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+  }
 
-  .layout{
+  a:hover { color: var(--forest); }
+  a:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
+
+  .layout {
     display: grid;
     grid-template-columns: 200px 1fr;
     max-width: 1040px;
@@ -45,8 +49,7 @@
     min-height: 100vh;
   }
 
-  /* ---- Side nav (book margin) ---- */
-  nav.side{
+  nav.side {
     border-right: 1px solid var(--rule);
     padding: 64px 28px 40px 0;
     position: sticky;
@@ -54,22 +57,27 @@
     align-self: start;
     height: 100vh;
   }
-  .nav-name{
+
+  .nav-name {
     font-family: "IBM Plex Mono", monospace;
     font-size: 13px;
     letter-spacing: 0.01em;
     color: var(--ink);
     margin: 0 0 6px;
+    font-weight: 500;
   }
-  .nav-role{
+
+  .nav-role {
     font-family: "IBM Plex Mono", monospace;
     font-size: 12px;
     color: var(--umber);
     margin: 0 0 36px;
   }
-  nav.side ul{ list-style: none; margin: 0; padding: 0; }
-  nav.side li{ margin-bottom: 14px; }
-  nav.side a{
+
+  nav.side ul { list-style: none; margin: 0; padding: 0; }
+  nav.side li { margin-bottom: 14px; }
+
+  nav.side a {
     font-family: "IBM Plex Mono", monospace;
     font-size: 13px;
     color: var(--umber);
@@ -78,270 +86,267 @@
     padding-left: 10px;
     display: inline-block;
   }
-  nav.side a:hover{ color: var(--forest); border-left-color: var(--forest); }
 
-  /* ---- Main content ---- */
-  main{ padding: 64px 40px 100px 44px; max-width: 760px; }
+  nav.side a:hover { color: var(--forest); border-left-color: var(--forest); }
 
-  section{ margin-bottom: 76px; }
-  section:last-of-type{ margin-bottom: 40px; }
+  main {
+    padding: 64px 40px 100px 44px;
+    max-width: 760px;
+  }
 
-  h1{
+  h1 {
     font-size: clamp(2.1rem, 4vw, 2.7rem);
     font-weight: 600;
     line-height: 1.15;
     margin: 0 0 18px;
-    max-width: 14ch;
   }
 
-  .thesis{
+  .subtitle {
     font-size: 1.15rem;
     color: var(--umber);
-    max-width: 46ch;
-    margin: 0 0 28px;
+    max-width: 48ch;
+    margin: 0 0 24px;
   }
 
-  .hero-meta{
-    display: flex;
-    gap: 20px;
+  .meta-tag {
     font-family: "IBM Plex Mono", monospace;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--brass);
-    flex-wrap: wrap;
+    margin-bottom: 6px;
+    display: block;
   }
 
-  h2{
+  h2 {
     font-size: 1.05rem;
     font-weight: 600;
-    margin: 0 0 28px;
+    margin: 56px 0 24px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--rule);
+    font-family: "IBM Plex Mono", monospace;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
   }
 
-  p{ max-width: 68ch; margin: 0 0 16px; }
+  p { max-width: 68ch; margin: 0 0 16px; }
 
-  /* ---- About ---- */
-  .about p:last-child{ margin-bottom: 0; }
+  .timeline-item, .project-item { margin-bottom: 32px; }
 
-  /* ---- Work timeline ---- */
-  .timeline{
-    border-left: 1px solid var(--rule);
-    padding-left: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-  }
-  .entry{ position: relative; }
-  .entry::before{
-    content: "";
-    position: absolute;
-    left: -33px;
-    top: 6px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--brass);
-  }
-  .entry-head{
+  .item-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 12px;
-    flex-wrap: wrap;
     margin-bottom: 4px;
   }
-  .entry-title{ font-weight: 600; font-size: 1.05rem; }
-  .entry-period{
+
+  .item-title { font-weight: 600; font-size: 1.05rem; }
+
+  .item-meta {
     font-family: "IBM Plex Mono", monospace;
     font-size: 12px;
     color: var(--umber);
-    white-space: nowrap;
   }
-  .entry-org{ color: var(--umber); font-style: italic; margin-bottom: 8px; }
-  .entry p{ margin-bottom: 0; }
 
-  /* ---- Projects (bibliography style) ---- */
-  .biblio{ display: flex; flex-direction: column; }
-  .biblio-entry{
-    padding: 22px 0;
-    border-bottom: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 4px 20px;
-  }
-  .biblio-entry:first-child{ padding-top: 0; }
-  .biblio-entry:last-child{ border-bottom: none; }
-  .biblio-year{
+  .item-sub {
     font-family: "IBM Plex Mono", monospace;
     font-size: 12px;
     color: var(--brass);
-    padding-top: 4px;
-  }
-  .biblio-body .proj-title{
-    font-weight: 600;
-    font-size: 1.08rem;
-  }
-  .biblio-body .proj-title a{ color: var(--ink); text-decoration: none; }
-  .biblio-body .proj-title a:hover{ color: var(--forest); text-decoration: underline; }
-  .proj-stack{
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 11.5px;
-    color: var(--umber);
-    margin: 4px 0 8px;
-  }
-  .proj-desc{ margin: 0; color: var(--ink); }
-  .proj-link{ font-family: "IBM Plex Mono", monospace; font-size: 12.5px; }
-
-  /* ---- Contact ---- */
-  .contact-list{ display: flex; flex-direction: column; gap: 10px; }
-  .contact-list a{
-    font-size: 1.05rem;
-    display: inline-flex;
-    gap: 10px;
-    align-items: baseline;
-  }
-  .contact-label{
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    color: var(--umber);
-    width: 70px;
-    display: inline-block;
+    margin-bottom: 8px;
   }
 
-  footer{
+  .contact-list { list-style: none; padding: 0; margin: 0; }
+
+  .contact-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+  }
+
+  .contact-label { width: 80px; color: var(--umber); }
+
+  footer {
     padding: 28px 40px 40px 44px;
     font-family: "IBM Plex Mono", monospace;
     font-size: 11.5px;
     color: var(--umber);
     grid-column: 2;
+    border-top: 1px solid var(--rule);
+    margin-top: 40px;
   }
 
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior: auto; }
-  }
-
-  /* ---- Mobile ---- */
-  @media (max-width: 760px){
-    .layout{ grid-template-columns: 1fr; }
-    nav.side{
+  @media (max-width: 760px) {
+    .layout { grid-template-columns: 1fr; }
+    nav.side {
       position: relative;
       height: auto;
       border-right: none;
       border-bottom: 1px solid var(--rule);
       padding: 32px 24px 24px;
     }
-    nav.side ul{ display: flex; flex-wrap: wrap; gap: 4px 18px; }
-    nav.side li{ margin-bottom: 0; }
-    main{ padding: 40px 24px 80px; }
-    .biblio-entry{ grid-template-columns: 1fr; gap: 2px; }
-    footer{ grid-column: 1; padding: 24px; }
+    nav.side ul { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+    nav.side li { margin-bottom: 0; }
+    main { padding: 40px 24px 80px; }
+    footer { grid-column: 1; padding: 24px; }
   }
 </style>
 </head>
 <body>
 
 <div class="layout">
-  <nav class="side" aria-label="Section navigation">
-    <p class="nav-name">Alex Rivera</p>
-    <p class="nav-role">Software Engineer</p>
+  <nav class="side" aria-label="Main navigation">
+    <p class="nav-name" data-cms="nav.navName">Alex Rivera</p>
+    <p class="nav-role" data-cms="nav.navRole">Software Engineer</p>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" data-cms="nav.menuLink1">About</a></li>
+      <li><a href="#work" data-cms="nav.menuLink2">Work</a></li>
+      <li><a href="#projects" data-cms="nav.menuLink3">Projects</a></li>
+      <li><a href="#contact" data-cms="nav.menuLink4">Contact</a></li>
     </ul>
   </nav>
 
   <main>
-
-    <section id="hero" aria-label="Introduction">
-      <h1>Building systems that hold up under real use.</h1>
-      <p class="thesis">Backend-leaning software engineer with eight years building infrastructure, APIs, and the occasional interface, for teams that need things to keep working after launch day.</p>
-      <div class="hero-meta">
-        <span>Taipei, Taiwan</span>
-        <span>Available for select contract work</span>
-      </div>
+    <section id="hero">
+      <h1 data-cms="hero.heroHeading">Building systems that hold up under real use.</h1>
+      <p class="subtitle" data-cms="hero.heroThesis">Backend-leaning software engineer with eight years building infrastructure, APIs, and the occasional interface, for teams that need things to keep working after launch day.</p>
+      <span class="meta-tag" data-cms="hero.locationMeta">Taipei, Taiwan</span>
+      <span class="meta-tag" data-cms="hero.availabilityMeta">Available for select contract work</span>
     </section>
 
-    <section id="about" class="about">
-      <h2>About</h2>
-      <p>I spend most of my time in Go and TypeScript, working on services that sit close to data — queues, migrations, the parts of a system that are unglamorous until they break. Before that, I spent three years doing infrastructure work at a logistics company, which is where I learned to distrust anything that hasn't been tested under load.</p>
-      <p>Outside of client work, I maintain a couple of small open-source tools and write occasionally about database internals and the tradeoffs behind boring technology.</p>
+    <section id="about">
+      <h2 data-cms="about.sectionTitle">About</h2>
+      <p data-cms="about.paragraph1">I spend most of my time in Go and TypeScript, working on services that sit close to data — queues, migrations, the parts of a system that are unglamorous until they break. Before that, I spent three years doing infrastructure work at a logistics company, which is where I learned to distrust anything that hasn't been tested under load.</p>
+      <p data-cms="about.paragraph2">Outside of client work, I maintain a couple of small open-source tools and write occasionally about database internals and the tradeoffs behind boring technology.</p>
     </section>
 
     <section id="work">
-      <h2>Work</h2>
-      <div class="timeline">
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Senior Software Engineer</span>
-            <span class="entry-period">2022 — Present</span>
-          </div>
-          <div class="entry-org">Northbeam Systems</div>
-          <p>Lead engineer on the payments infrastructure team. Rebuilt the settlement pipeline to cut reconciliation errors by a wide margin, and introduced schema-versioning practices now used across four teams.</p>
+      <h2 data-cms="work.sectionTitle">Work</h2>
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title" data-cms="work.job1Title">Senior Software Engineer</span>
+          <span class="item-meta" data-cms="work.job1Period">2022 — Present</span>
         </div>
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Software Engineer</span>
-            <span class="entry-period">2019 — 2022</span>
-          </div>
-          <div class="entry-org">Ferrovia Logistics</div>
-          <p>Built and operated the routing service handling live fleet data for a mid-size delivery network. Moved the team from nightly batch jobs to a streaming pipeline.</p>
+        <div class="item-sub" data-cms="work.job1Org">Northbeam Systems</div>
+        <p data-cms="work.job1Desc">Lead engineer on the payments infrastructure team. Rebuilt the settlement pipeline to cut reconciliation errors by a wide margin, and introduced schema-versioning practices now used across four teams.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title" data-cms="work.job2Title">Software Engineer</span>
+          <span class="item-meta" data-cms="work.job2Period">2019 — 2022</span>
         </div>
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Junior Developer</span>
-            <span class="entry-period">2017 — 2019</span>
-          </div>
-          <div class="entry-org">Studio Marlowe</div>
-          <p>First engineering role, split between client web work and internal tooling for a small design studio.</p>
+        <div class="item-sub" data-cms="work.job2Org">Ferrovia Logistics</div>
+        <p data-cms="work.job2Desc">Built and operated the routing service handling live fleet data for a mid-size delivery network. Moved the team from nightly batch jobs to a streaming pipeline.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title" data-cms="work.job3Title">Junior Developer</span>
+          <span class="item-meta" data-cms="work.job3Period">2017 — 2019</span>
         </div>
+        <div class="item-sub" data-cms="work.job3Org">Studio Marlowe</div>
+        <p data-cms="work.job3Desc">First engineering role, split between client web work and internal tooling for a small design studio.</p>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <div class="biblio">
-        <div class="biblio-entry">
-          <span class="biblio-year">2026</span>
-          <div class="biblio-body">
-            <p class="proj-title"><a href="#">Ledgerline</a></p>
-            <p class="proj-stack">Go · PostgreSQL · gRPC</p>
-            <p class="proj-desc">An append-only ledger library for services that need auditable state changes without adopting a full event-sourcing framework.</p>
-          </div>
+      <h2 data-cms="projects.sectionTitle">Projects</h2>
+      <div class="project-item">
+        <div class="item-header">
+          <span class="item-title" data-cms="projects.proj1Title">Ledgerline</span>
+          <span class="item-meta" data-cms="projects.proj1Year">2026</span>
         </div>
-        <div class="biblio-entry">
-          <span class="biblio-year">2025</span>
-          <div class="biblio-body">
-            <p class="proj-title"><a href="#">Quietqueue</a></p>
-            <p class="proj-stack">TypeScript · Redis</p>
-            <p class="proj-desc">A minimal job queue built for small teams who found existing options too heavy for their traffic. Around 400 stars on GitHub.</p>
-          </div>
+        <div class="item-sub" data-cms="projects.proj1Stack">Go · PostgreSQL · gRPC</div>
+        <p data-cms="projects.proj1Desc">An append-only ledger library for services that need auditable state changes without adopting a full event-sourcing framework.</p>
+      </div>
+
+      <div class="project-item">
+        <div class="item-header">
+          <span class="item-title" data-cms="projects.proj2Title">Quietqueue</span>
+          <span class="item-meta" data-cms="projects.proj2Year">2025</span>
         </div>
-        <div class="biblio-entry">
-          <span class="biblio-year">2023</span>
-          <div class="biblio-body">
-            <p class="proj-title"><a href="#">Fieldnotes</a></p>
-            <p class="proj-stack">Python · SQLite</p>
-            <p class="proj-desc">A command-line tool for logging and querying incident postmortems, built out of frustration with existing wiki-based systems.</p>
-          </div>
+        <div class="item-sub" data-cms="projects.proj2Stack">TypeScript · Redis</div>
+        <p data-cms="projects.proj2Desc">A minimal job queue built for small teams who found existing options too heavy for their traffic. Around 400 stars on GitHub.</p>
+      </div>
+
+      <div class="project-item">
+        <div class="item-header">
+          <span class="item-title" data-cms="projects.proj3Title">Fieldnotes</span>
+          <span class="item-meta" data-cms="projects.proj3Year">2023</span>
         </div>
+        <div class="item-sub" data-cms="projects.proj3Stack">Python · SQLite</div>
+        <p data-cms="projects.proj3Desc">A command-line tool for logging and querying incident postmortems, built out of frustration with existing wiki-based systems.</p>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <div class="contact-list">
-        <a href="mailto:alex@example.com"><span class="contact-label">Email</span> alex@example.com</a>
-        <a href="#"><span class="contact-label">GitHub</span> github.com/alexrivera</a>
-        <a href="#"><span class="contact-label">LinkedIn</span> linkedin.com/in/alexrivera</a>
-      </div>
+      <h2 data-cms="contact.sectionTitle">Contact</h2>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-label" data-cms="contact.emailLabel">Email</span>
+          <a href="mailto:alex@example.com" data-cms="contact.emailValue">alex@example.com</a>
+        </li>
+        <li>
+          <span class="contact-label" data-cms="contact.githubLabel">GitHub</span>
+          <a href="https://github.com/alexrivera" target="_blank" rel="noopener" data-cms="contact.githubValue">github.com/alexrivera</a>
+        </li>
+        <li>
+          <span class="contact-label" data-cms="contact.linkedinLabel">LinkedIn</span>
+          <a href="https://linkedin.com/in/alexrivera" target="_blank" rel="noopener" data-cms="contact.linkedinValue">linkedin.com/in/alexrivera</a>
+        </li>
+      </ul>
     </section>
-
   </main>
 
-  <footer>Last updated September 2026</footer>
+  <footer data-cms="footer.footerText">Last updated September 2026</footer>
 </div>
+
+<script>
+  async function loadLiveContent() {
+    let data = null;
+
+    // 1. Check browser local storage first
+    const localData = localStorage.getItem('siteContent');
+    if (localData) {
+      try {
+        data = JSON.parse(localData);
+      } catch (e) {
+        console.error('Failed to parse local storage', e);
+      }
+    }
+
+    // 2. Fetch content.json as fallback
+    if (!data) {
+      try {
+        const response = await fetch('content.json?t=' + Date.now());
+        if (response.ok) {
+          data = await response.json();
+        }
+      } catch (e) {
+        console.log('Serving default HTML content.');
+      }
+    }
+
+    if (!data) return;
+
+    // 3. Render into DOM elements with data-cms attributes
+    document.querySelectorAll('[data-cms]').forEach(el => {
+      const path = el.getAttribute('data-cms').split('.');
+      const section = path[0];
+      const field = path[1];
+
+      if (data[section] && data[section][field] !== undefined) {
+        el.textContent = data[section][field];
+
+        if (el.tagName === 'A' && el.getAttribute('href')?.startsWith('mailto:')) {
+          el.setAttribute('href', `mailto:${data[section][field]}`);
+        }
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', loadLiveContent);
+</script>
 
 </body>
 </html>
