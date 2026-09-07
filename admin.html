@@ -24,31 +24,101 @@
 
   <main>
     <div class="card">
-      <h1>Content Management Portal</h1>
-      <p>Publish new announcements, blog updates, or resource media directly to the site.</p>
+      <h1>Website Content CMS</h1>
+      <p>Select a page to edit its headings, taglines, and paragraph copy.</p>
       
-      <form action="/upload-endpoint" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="post-title">Article Title</label>
-          <input type="text" id="post-title" name="title" required placeholder="Enter article headline">
+      <!-- Page Selector Form -->
+      <div class="form-group">
+        <label for="page-selector">Choose Page to Edit</label>
+        <select id="page-selector" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); font-size: 1rem;">
+          <option value="index">Home Page (index.html)</option>
+          <option value="about">About Page (about.html)</option>
+          <option value="contact">Contact Page (contact.html)</option>
+        </select>
+      </div>
+
+      <!-- Dynamic Content Editor Form -->
+      <form id="cms-form">
+        <div id="editor-fields">
+          <!-- Dynamic inputs will load here via JavaScript -->
         </div>
 
-        <div class="form-group">
-          <label for="post-content">Body Content</label>
-          <textarea id="post-content" name="content" required placeholder="Write your content here..."></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="file-upload">Attach Asset / Image</label>
-          <input type="file" id="file-upload" name="media" accept="image/*,.pdf">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Publish Update</button>
+        <button type="submit" class="btn btn-primary">Save Content Changes</button>
       </form>
     </div>
   </main>
 
   <footer>&copy; 2026 Enterprise Inc. All rights reserved.</footer>
   <script src="script.js"></script>
+  <script>
+    // CMS Template Data Store mapping editable elements for each page
+    const pageData = {
+      index: {
+        title: "Welcome to Our Platform",
+        subtitle: "We deliver high-performance solutions designed to scale your operational workflow efficiently. Explore our background or contact our team directly.",
+        feature1Title: "Reliable Infrastructure",
+        feature1Desc: "Built on solid core engineering practices to ensure high uptime and security.",
+        feature2Title: "Seamless Integration",
+        feature2Desc: "Easily integrate with existing cloud and enterprise software setups.",
+        feature3Title: "Automated Workflows",
+        feature3Desc: "Save operational hours by deploying fully automated deployment pipelines."
+      },
+      about: {
+        title: "About Our Organization",
+        paragraph1: "Founded with a focus on reliability and core engineering excellence, we help enterprise partners structure, deploy, and automate critical digital infrastructure.",
+        paragraph2: "Our multidisciplinary team bridges the gap between legacy reliability and modern automation practices, enabling scalable operations without compromising security."
+      },
+      contact: {
+        title: "Contact Us",
+        subtitle: "Fill out the form below and our team will get back to you within 24 hours."
+      }
+    };
+
+    const pageSelector = document.getElementById('page-selector');
+    const editorFields = document.getElementById('editor-fields');
+    const cmsForm = document.getElementById('cms-form');
+
+    // Function to render input fields based on the selected page
+    function loadEditorFields(pageKey) {
+      const data = pageData[pageKey];
+      let html = '';
+      
+      for (const [key, value] of Object.entries(data)) {
+        const formattedLabel = key.replace(/([A-Z])/g, ' $1').toUpperCase();
+        html += `
+          <div class="form-group">
+            <label for="${key}">${formattedLabel}</label>
+            ${value.length > 80 ? 
+              `<textarea id="${key}" name="${key}" required>${value}</textarea>` : 
+              `<input type="text" id="${key}" name="${key}" value="${value}" required>`
+            }
+          </div>
+        `;
+      }
+      editorFields.innerHTML = html;
+    }
+
+    // Initial load
+    loadEditorFields(pageSelector.value);
+
+    // Switch fields on dropdown change
+    pageSelector.addEventListener('change', (e) => {
+      loadEditorFields(e.target.value);
+    });
+
+    // Handle form submission simulation
+    cmsForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const currentPage = pageSelector.value;
+      const formData = new FormData(cmsForm);
+      
+      // Update local data store simulation
+      for (const [key, value] of formData.entries()) {
+        pageData[currentPage][key] = value;
+      }
+
+      alert(`Successfully saved changes for ${currentPage}.html! (In a production environment, this pushes changes to your server backend or CMS API)`);
+    });
+  </script>
 </body>
 </html>
