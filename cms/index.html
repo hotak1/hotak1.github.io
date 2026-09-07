@@ -4,126 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CMS Dashboard | hotak1.com</title>
+  <!-- Points back to the root style.css -->
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* Robust inline overrides to guarantee clean professional styling */
-    body {
-      background-color: #0f172a;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    #login-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #0f172a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .login-card {
-      background: #ffffff;
-      padding: 2.5rem;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-      box-sizing: border-box;
-    }
-
-    .login-card h1 {
-      font-size: 1.75rem;
-      color: #0f172a;
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.5px;
-    }
-
-    .login-card p {
-      color: #64748b;
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .login-card .form-group {
-      margin-bottom: 1.25rem;
-      text-align: left;
-    }
-
-    .login-card label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #0f172a;
-      font-size: 0.9rem;
-    }
-
-    .login-card input[type="text"],
-    .login-card input[type="password"] {
+    /* Extend your existing style.css to support password and select fields */
+    input[type="password"], select {
       width: 100%;
       padding: 0.75rem 1rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       font-size: 1rem;
       outline: none;
-      background: #f8fafc;
-      box-sizing: border-box;
       transition: border-color 0.2s;
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
     }
-
-    .login-card input:focus {
-      border-color: #2563eb;
-      background: #ffffff;
+    input[type="password"]:focus, select:focus {
+      border-color: var(--accent);
+      background: var(--surface);
     }
-
-    .login-card button {
-      width: 100%;
-      padding: 0.75rem;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 0.5rem;
-      transition: background 0.2s;
-    }
-
-    .login-card button:hover {
-      background: #1d4ed8;
-    }
-
     .error-msg {
-      background: #fef2f2;
       color: #dc2626;
-      border: 1px solid #fecaca;
-      padding: 0.75rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       margin-bottom: 1rem;
-      display: none;
-    }
-
-    #cms-app {
+      font-weight: 500;
       display: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Login Gate Overlay -->
-  <div id="login-overlay">
-    <div class="login-card">
-      <h1>CMS Login</h1>
+  <!-- Standard Header matching the rest of the site -->
+  <header>
+    <a href="../index.html" class="logo">hotak1.com</a>
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav id="nav-menu">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="index.html" class="active">CMS Dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- LOGIN VIEW (Styled as a standard site card) -->
+    <div class="card" id="login-section">
+      <h1>Admin Login</h1>
       <p>Enter your credentials to manage hotak1.com content.</p>
+      
       <div id="login-error" class="error-msg">Invalid username or password. Please try again.</div>
+      
       <form id="login-form">
         <div class="form-group">
           <label for="username">Username</label>
@@ -133,71 +68,54 @@
           <label for="password">Password</label>
           <input type="password" id="password" required placeholder="Enter password">
         </div>
-        <button type="submit">Sign In</button>
+        <button type="submit" class="btn btn-primary">Sign In</button>
       </form>
     </div>
-  </div>
 
-  <!-- Protected CMS Application -->
-  <div id="cms-app">
-    <header>
-      <a href="../index.html" class="logo">hotak1.com</a>
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav id="nav-menu">
-        <a href="../index.html">Home</a>
-        <a href="../about.html">About</a>
-        <a href="../contact.html">Contact</a>
-        <a href="index.html" class="active">CMS Dashboard</a>
-      </nav>
-    </header>
+    <!-- CMS DASHBOARD VIEW (Hidden until logged in) -->
+    <div class="card" id="cms-section" style="display: none;">
+      <h1>Website Content CMS</h1>
+      <p>Select a page below to edit its headings, taglines, and paragraph copy.</p>
+      
+      <div class="form-group" style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);">
+        <label for="page-selector">Choose Page to Edit</label>
+        <select id="page-selector">
+          <option value="index">Home Page (index.html)</option>
+          <option value="about">About Page (about.html)</option>
+          <option value="contact">Contact Page (contact.html)</option>
+        </select>
+      </div>
 
-    <main>
-      <div class="card">
-        <h1>Website Content CMS</h1>
-        <p>Select a page to edit its headings, taglines, and paragraph copy dynamically.</p>
-        
-        <!-- Page Selector Form -->
-        <div class="form-group">
-          <label for="page-selector">Choose Page to Edit</label>
-          <select id="page-selector" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); font-size: 1rem;">
-            <option value="index">Home Page (index.html)</option>
-            <option value="about">About Page (about.html)</option>
-            <option value="contact">Contact Page (contact.html)</option>
-          </select>
+      <form id="cms-form">
+        <div id="editor-fields">
+          <!-- Dynamic inputs will load here -->
         </div>
 
-        <!-- Dynamic Content Editor Form -->
-        <form id="cms-form">
-          <div id="editor-fields">
-            <!-- Dynamic inputs will load here via JavaScript -->
-          </div>
+        <div class="cta-group" style="justify-content: flex-start; margin-top: 2rem;">
+          <button type="submit" class="btn btn-primary">Save Content Changes</button>
+          <button type="button" id="logout-btn" class="btn btn-secondary">Sign Out</button>
+        </div>
+      </form>
+    </div>
+  </main>
 
-          <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1.5rem;">
-            <button type="submit" class="btn btn-primary">Save Content Changes</button>
-            <button type="button" id="logout-btn" class="btn btn-secondary">Sign Out</button>
-          </div>
-        </form>
-      </div>
-    </main>
+  <!-- Standard Footer -->
+  <footer>&copy; 2026 hotak1.com. All rights reserved.</footer>
 
-    <footer>&copy; 2026 hotak1.com. All rights reserved.</footer>
-  </div>
-
+  <!-- Points back to the root script.js for mobile menu -->
   <script src="../script.js"></script>
+  
   <script>
     const AUTH_USER = "pat";
     const AUTH_PASS = "Today123";
 
-    const loginOverlay = document.getElementById('login-overlay');
+    const loginSection = document.getElementById('login-section');
+    const cmsSection = document.getElementById('cms-section');
     const loginForm = document.getElementById('login-form');
     const loginError = document.getElementById('login-error');
-    const cmsApp = document.getElementById('cms-app');
     const logoutBtn = document.getElementById('logout-btn');
 
+    // Authentication Check
     if (sessionStorage.getItem('cms_authenticated') === 'true') {
       showCMS();
     }
@@ -218,16 +136,17 @@
 
     logoutBtn.addEventListener('click', () => {
       sessionStorage.removeItem('cms_authenticated');
-      cmsApp.style.display = 'none';
-      loginOverlay.style.display = 'flex';
+      cmsSection.style.display = 'none';
+      loginSection.style.display = 'block';
       loginForm.reset();
     });
 
     function showCMS() {
-      loginOverlay.style.display = 'none';
-      cmsApp.style.display = 'block';
+      loginSection.style.display = 'none';
+      cmsSection.style.display = 'block';
     }
 
+    // CMS Data Handling
     const pageData = {
       index: {
         title: "Welcome to Our Platform",
@@ -261,7 +180,7 @@
       for (const [key, value] of Object.entries(data)) {
         const formattedLabel = key.replace(/([A-Z])/g, ' $1').toUpperCase();
         html += `
-          <div class="form-group" style="margin-bottom: 1.25rem;">
+          <div class="form-group">
             <label for="${key}">${formattedLabel}</label>
             ${value.length > 80 ? 
               `<textarea id="${key}" name="${key}" required>${value}</textarea>` : 
