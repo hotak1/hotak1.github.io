@@ -2,277 +2,222 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>ATELIER — High Resolution Photography Archive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STUDIO ARCHIVE — Commercial & Fine Art Photography</title>
   
-  <!-- High-Fashion Agency Fonts -->
+  <!-- Modern Clean Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
-  <!-- Cache-Busting Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=3.0" />
+  <link rel="stylesheet" href="styles.css?v=4.0" />
 </head>
 <body>
 
-  <!-- Floating Glass Header -->
-  <header class="navbar">
-    <a href="#" class="logo">
-      <span class="logo-symbol">●</span>
-      <span class="logo-text">ATELIER <em>/ ARCHIVE</em></span>
-    </a>
-    <nav class="nav-links">
-      <a href="#hero">CURATED</a>
-      <a href="#gallery">COLLECTION</a>
-      <a href="#about">SPECIFICATIONS</a>
-    </nav>
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#" class="brand-logo">STUDIO <span>ARCHIVE</span></a>
+      <nav class="main-nav">
+        <a href="#work">WORK</a>
+        <a href="#services">CAPABILITIES</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact" class="nav-cta">INQUIRE</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <!-- Hero: Edge-Masked Left-to-Right Continuous Marquee -->
-    <section id="hero" class="hero-section">
-      <div class="hero-meta">
-        <div class="tag-badge"><span class="pulse-dot"></span> LIVE FILMSTRIP</div>
-        <h1 class="hero-title">FEATURED EXPOSURES</h1>
-        <p class="hero-subtitle">Continuous 35mm & Medium Format Digital Roll</p>
-      </div>
-
-      <div class="marquee-viewport">
-        <div class="marquee-track">
-          <!-- SET 1 -->
-          <article class="hero-card" data-title="Alpine Ridge 01" data-exif="24mm · f/2.8 · 1/1000s · ISO 100" data-category="landscape">
-            <span class="frame-tag">FRAME // 01</span>
-            <div class="img-wrapper">
-              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Alpine Ridge" loading="eager">
-            </div>
-            <div class="card-caption">
-              <h3>Alpine Ridge 01</h3>
-              <p class="exif-text">24mm · f/2.8 · 1/1000s</p>
-            </div>
-          </article>
-
-          <article class="hero-card" data-title="Concrete Monolith" data-exif="35mm · f/4.0 · 1/500s · ISO 200" data-category="architecture">
-            <span class="frame-tag">FRAME // 02</span>
-            <div class="img-wrapper">
-              <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Concrete Monolith" loading="eager">
-            </div>
-            <div class="card-caption">
-              <h3>Concrete Monolith</h3>
-              <p class="exif-text">35mm · f/4.0 · 1/500s</p>
-            </div>
-          </article>
-
-          <article class="hero-card" data-title="Atmosphere III" data-exif="50mm · f/1.4 · 1/2500s · ISO 64" data-category="landscape">
-            <span class="frame-tag">FRAME // 03</span>
-            <div class="img-wrapper">
-              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Atmosphere III" loading="eager">
-            </div>
-            <div class="card-caption">
-              <h3>Atmosphere III</h3>
-              <p class="exif-text">50mm · f/1.4 · 1/2500s</p>
-            </div>
-          </article>
-
-          <article class="hero-card" data-title="Symmetry & Shade" data-exif="85mm · f/1.8 · 1/1600s · ISO 100" data-category="portrait">
-            <span class="frame-tag">FRAME // 04</span>
-            <div class="img-wrapper">
-              <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Symmetry" loading="eager">
-            </div>
-            <div class="card-caption">
-              <h3>Symmetry & Shade</h3>
-              <p class="exif-text">85mm · f/1.8 · 1/1600s</p>
-            </div>
-          </article>
-
-          <!-- DUPLICATE SET (Required for infinite continuous loop) -->
-          <article class="hero-card" data-title="Alpine Ridge 01" data-exif="24mm · f/2.8 · 1/1000s · ISO 100" data-category="landscape">
-            <span class="frame-tag">FRAME // 01</span>
-            <div class="img-wrapper">
-              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Alpine Ridge" loading="eager">
-            </div>
-            <div class="card-caption">
-              <h3>Alpine Ridge 01</h3>
-              <p class="exif-text">24mm · f/2.8 · 1/1000s</p>
-            </div>
-          </article>
-
-          <article class="hero-card" data-title="Concrete Monolith" data-exif="35mm · f/4.0 · 1/500s · ISO 200" data-category="architecture">
-            <span class="frame-tag">FRAME // 02</span>
-            <div class="img-wrapper">
-              <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200" alt="Concrete Monolith" loading="eager">
-            </div>
-            <div class="card-caption">
-              <h3>Concrete Monolith</h3>
-              <p class="exif-text">35mm · f/4.0 · 1/500s</p>
-            </div>
-          </article>
-
-          <article class="hero-card" data-title="Atmosphere III" data-exif="50mm · f/1.4 · 1/2500s · ISO 64" data-category="landscape">
-            <span class="frame-tag">FRAME // 03</span>
-            <div class="img-wrapper">
-              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Atmosphere III" loading="eager">
-            </div>
-            <div class="card-caption">
-              <h3>Atmosphere III</h3>
-              <p class="exif-text">50mm · f/1.4 · 1/2500s</p>
-            </div>
-          </article>
-
-          <article class="hero-card" data-title="Symmetry & Shade" data-exif="85mm · f/1.8 · 1/1600s · ISO 100" data-category="portrait">
-            <span class="frame-tag">FRAME // 04</span>
-            <div class="img-wrapper">
-              <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Symmetry" loading="eager">
-            </div>
-            <div class="card-caption">
-              <h3>Symmetry & Shade</h3>
-              <p class="exif-text">85mm · f/1.8 · 1/1600s</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Main Portfolio Gallery with Interactive CMS Filters -->
-    <section id="gallery" class="gallery-section">
-      <div class="gallery-toolbar">
-        <div class="toolbar-title">
-          <span class="section-tag">// ARCHIVE CATALOG</span>
-          <h2>COLLECTION INDEX</h2>
+    <!-- Executive Hero Showcase -->
+    <section class="hero-studio">
+      <div class="hero-container">
+        <div class="hero-left">
+          <span class="mono-label">SELECTED WORKS // 2024–2026</span>
+          <h1 class="hero-heading">VISUAL NARRATIVES & COMMERCIAL STILLS</h1>
+          <p class="hero-description">Specializing in high-end architectural, landscape, and editorial photography for global brands, agencies, and fine art collections.</p>
+          <div class="hero-actions">
+            <a href="#work" class="btn-primary">EXPLORE ARCHIVE</a>
+            <a href="#contact" class="btn-secondary">BOOK A SHOOT</a>
+          </div>
         </div>
         
-        <!-- Interactive Category Filters -->
-        <div class="filter-group">
-          <button class="filter-btn active" data-filter="all">ALL WORKS</button>
-          <button class="filter-btn" data-filter="landscape">LANDSCAPE</button>
-          <button class="filter-btn" data-filter="architecture">ARCHITECTURE</button>
-          <button class="filter-btn" data-filter="portrait">PORTRAIT</button>
-        </div>
-      </div>
-
-      <!-- Uniform 3:2 Grid with High-Contrast Overlays -->
-      <div class="gallery-grid">
-        <div class="grid-item" data-category="landscape" data-title="Mountain Spine" data-exif="24mm · f/8.0 · 1/500s · ISO 100">
-          <div class="item-frame">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600" alt="Mountain Spine" loading="lazy">
-            <div class="item-overlay">
-              <div class="overlay-content">
-                <span class="exif-badge">24mm · f/8.0 · 1/500s</span>
-                <h3>Mountain Spine</h3>
-                <p>Landscape / Fine Art</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item" data-category="architecture" data-title="Glass & Steel" data-exif="35mm · f/5.6 · 1/250s · ISO 200">
-          <div class="item-frame">
-            <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1600" alt="Glass & Steel" loading="lazy">
-            <div class="item-overlay">
-              <div class="overlay-content">
-                <span class="exif-badge">35mm · f/5.6 · 1/250s</span>
-                <h3>Glass & Steel</h3>
-                <p>Architecture / Structural</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item" data-category="landscape" data-title="Deep Woodlands" data-exif="50mm · f/2.0 · 1/1000s · ISO 100">
-          <div class="item-frame">
-            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1600" alt="Deep Woodlands" loading="lazy">
-            <div class="item-overlay">
-              <div class="overlay-content">
-                <span class="exif-badge">50mm · f/2.0 · 1/1000s</span>
-                <h3>Deep Woodlands</h3>
-                <p>Landscape / Nature</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item" data-category="portrait" data-title="Chiaroscuro" data-exif="85mm · f/1.4 · 1/2000s · ISO 64">
-          <div class="item-frame">
-            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1600" alt="Chiaroscuro" loading="lazy">
-            <div class="item-overlay">
-              <div class="overlay-content">
-                <span class="exif-badge">85mm · f/1.4 · 1/2000s</span>
-                <h3>Chiaroscuro</h3>
-                <p>Portrait / Fine Art</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item" data-category="architecture" data-title="Brutalist Horizon" data-exif="18mm · f/11 · 1/125s · ISO 100">
-          <div class="item-frame">
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600" alt="Brutalist Horizon" loading="lazy">
-            <div class="item-overlay">
-              <div class="overlay-content">
-                <span class="exif-badge">18mm · f/11 · 1/125s</span>
-                <h3>Brutalist Horizon</h3>
-                <p>Architecture / Urban</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item" data-category="portrait" data-title="Ethereal Mist" data-exif="70mm · f/2.8 · 1/800s · ISO 160">
-          <div class="item-frame">
-            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1600" alt="Ethereal Mist" loading="lazy">
-            <div class="item-overlay">
-              <div class="overlay-content">
-                <span class="exif-badge">70mm · f/2.8 · 1/800s</span>
-                <h3>Ethereal Mist</h3>
-                <p>Portrait / Conceptual</p>
-              </div>
-            </div>
+        <div class="hero-right">
+          <div class="featured-frame" data-title="Alpine Solitude" data-exif="50mm · f/1.8 · 1/2000s · ISO 100" data-client="Editorial Series">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600" alt="Featured Work" loading="eager">
+            <div class="frame-tag font-mono">FEATURED // RELEASE 01</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Technical Colophon & Equipment Spec Section -->
-    <section id="about" class="about-section">
-      <div class="about-container">
-        <div class="about-text">
-          <span class="section-tag">// WORKFLOW & OPTICS</span>
-          <h2>PRECISION IN LIGHT & RENDERING</h2>
-          <p>Every photograph is captured using medium-format digital sensors and prime cinema lenses. Processing maintains absolute RAW chromatic fidelity, zero compression loss, and true dynamic range.</p>
+    <!-- Client / Press Banner -->
+    <section class="client-banner">
+      <div class="banner-container">
+        <span class="mono-label">REPRESENTED IN & PUBLISHED BY</span>
+        <div class="client-list">
+          <span>VOGUE</span>
+          <span>·</span>
+          <span>ARCHITECTURAL DIGEST</span>
+          <span>·</span>
+          <span>HASSELBLAD IN FOCUS</span>
+          <span>·</span>
+          <span>LEICA GALLERY</span>
+          <span>·</span>
+          <span>MONOCLE</span>
         </div>
-        <div class="spec-cards">
-          <div class="spec-card">
-            <span class="spec-val">100MB</span>
-            <span class="spec-lbl">UNCOMPRESSED RAW DYNAMIC RANGE</span>
-          </div>
-          <div class="spec-card">
-            <span class="spec-val">4K / 8K</span>
-            <span class="spec-lbl">NATIVE DISPLAY OPTIMIZATION</span>
+      </div>
+    </section>
+
+    <!-- Work Portfolio Section -->
+    <section id="work" class="portfolio-section">
+      <div class="portfolio-header">
+        <div>
+          <span class="mono-label">// CATALOGUE</span>
+          <h2 class="section-title">PROJECT ARCHIVE</h2>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="category-filters">
+          <button class="filter-btn active" data-filter="all">ALL</button>
+          <button class="filter-btn" data-filter="architecture">ARCHITECTURE</button>
+          <button class="filter-btn" data-filter="landscape">LANDSCAPE</button>
+          <button class="filter-btn" data-filter="editorial">EDITORIAL</button>
+        </div>
+      </div>
+
+      <!-- Asymmetrical Professional Masonry Layout -->
+      <div class="masonry-grid">
+        <div class="masonry-item tall" data-category="landscape" data-title="Highland Spine" data-exif="24mm · f/8.0 · 1/500s" data-client="Outdoor Commission">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Highland Spine" loading="lazy">
+          <div class="item-info">
+            <h3>Highland Spine</h3>
+            <p>Landscape / Fine Art</p>
           </div>
         </div>
+
+        <div class="masonry-item wide" data-category="architecture" data-title="Concrete Symmetry" data-exif="35mm · f/4.0 · 1/250s" data-client="Architectural Firm">
+          <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1400" alt="Concrete Symmetry" loading="lazy">
+          <div class="item-info">
+            <h3>Concrete Symmetry</h3>
+            <p>Architecture / Structure</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="editorial" data-title="Atmosphere III" data-exif="85mm · f/1.4 · 1/1600s" data-client="Fashion Lookbook">
+          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200" alt="Atmosphere III" loading="lazy">
+          <div class="item-info">
+            <h3>Atmosphere III</h3>
+            <p>Editorial / Portrait</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="architecture" data-title="Monolith in Glass" data-exif="24mm · f/11 · 1/125s" data-client="Design Studio">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200" alt="Monolith in Glass" loading="lazy">
+          <div class="item-info">
+            <h3>Monolith in Glass</h3>
+            <p>Architecture / Commercial</p>
+          </div>
+        </div>
+
+        <div class="masonry-item tall" data-category="landscape" data-title="Silent Forest" data-exif="50mm · f/2.0 · 1/1000s" data-client="Personal Gallery">
+          <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=1200" alt="Silent Forest" loading="lazy">
+          <div class="item-info">
+            <h3>Silent Forest</h3>
+            <p>Landscape / Nature</p>
+          </div>
+        </div>
+
+        <div class="masonry-item wide" data-category="editorial" data-title="Chiaroscuro Light" data-exif="70mm · f/2.8 · 1/800s" data-client="Magazine Cover">
+          <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1400" alt="Chiaroscuro Light" loading="lazy">
+          <div class="item-info">
+            <h3>Chiaroscuro Light</h3>
+            <p>Editorial / Fine Art</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services / Capabilities -->
+    <section id="services" class="services-section">
+      <div class="services-container">
+        <div class="services-left">
+          <span class="mono-label">// CORE SERVICES</span>
+          <h2>COMMERCIAL & ARTISTIC CAPABILITIES</h2>
+          <p>Full-service production from concept design to medium-format capture and high-resolution color grading.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="service-num font-mono">01</span>
+            <h3>Architectural & Spaces</h3>
+            <p>Exterior, interior, and structural documentations utilizing perspective control optical systems.</p>
+          </div>
+          <div class="service-card">
+            <span class="service-num font-mono">02</span>
+            <h3>Commercial Campaigns</h3>
+            <p>High-end visual branding, lookbooks, product stills, and location shoot execution.</p>
+          </div>
+          <div class="service-card">
+            <span class="service-num font-mono">03</span>
+            <h3>Fine Art Licensing</h3>
+            <p>Limited-edition museum-grade gallery prints and digital publication permissions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <span class="mono-label">// INQUIRIES & COMMISSIONS</span>
+        <h2>START A PROJECT</h2>
+        <p>Available for commercial bookings, licensing, and gallery exhibitions globally.</p>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <input type="text" placeholder="YOUR NAME" required>
+            <input type="email" placeholder="EMAIL ADDRESS" required>
+          </div>
+          <div class="form-row">
+            <input type="text" placeholder="PROJECT / ORGANIZATION">
+            <select required>
+              <option value="" disabled selected>SELECT SERVICE</option>
+              <option value="commercial">Commercial Campaign</option>
+              <option value="architecture">Architectural Shoot</option>
+              <option value="licensing">Fine Art Print / Licensing</option>
+            </select>
+          </div>
+          <textarea rows="4" placeholder="PROJECT DETAILS & TIMELINE" required></textarea>
+          <button type="submit" class="btn-primary">SUBMIT INQUIRY</button>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-inner">
-      <p>&copy; 2026 ATELIER ARCHIVE. All Rights Reserved.</p>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 STUDIO ARCHIVE. ALL RIGHTS RESERVED.</p>
+      <div class="footer-links">
+        <a href="#">INSTAGRAM</a>
+        <a href="#">BEHANCE</a>
+        <a href="#">LINKEDIN</a>
+      </div>
     </div>
   </footer>
 
-  <!-- Darkroom HD Lightbox Modal -->
-  <div id="lightbox" class="lightbox-modal" role="dialog" aria-hidden="true">
-    <button class="lightbox-close" aria-label="Close Lightbox">&times;</button>
-    
-    <div class="lightbox-stage">
-      <img id="lightbox-img" src="" alt="Full view high resolution">
-      <div class="lightbox-meta">
-        <h3 id="lightbox-title">Photograph Title</h3>
-        <p id="lightbox-exif" class="lightbox-exif-text">24mm · f/2.8 · 1/1000s · ISO 100</p>
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox-modal" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close View">&times;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Full view">
+      <div class="lightbox-details">
+        <h3 id="lightbox-title">Title</h3>
+        <p id="lightbox-client" class="mono-label">Client</p>
+        <p id="lightbox-exif" class="mono-label">EXIF</p>
       </div>
     </div>
   </div>
 
-  <!-- Cache-Busting Script -->
-  <script src="script.js?v=3.0"></script>
+  <script src="script.js?v=4.0"></script>
 </body>
 </html>

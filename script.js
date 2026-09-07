@@ -1,97 +1,73 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // UI Elements
+  // Category Filter Functionality
   const filterBtns = document.querySelectorAll(".filter-btn");
-  const galleryItems = document.querySelectorAll(".grid-item");
-  const heroCards = document.querySelectorAll(".hero-card");
+  const masonryItems = document.querySelectorAll(".masonry-item");
 
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const lightboxTitle = document.getElementById("lightbox-title");
-  const lightboxExif = document.getElementById("lightbox-exif");
-  const closeBtn = document.querySelector(".lightbox-close");
-
-  // ==========================================
-  // 1. CATEGORY FILTERING (CMS EFFECT)
-  // ==========================================
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       filterBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
 
-      const filterValue = btn.getAttribute("data-filter");
+      const category = btn.getAttribute("data-filter");
 
-      galleryItems.forEach((item) => {
-        const itemCategory = item.getAttribute("data-category");
-
-        if (filterValue === "all" || filterValue === itemCategory) {
-          item.classList.remove("hide");
+      masonryItems.forEach((item) => {
+        const itemCat = item.getAttribute("data-category");
+        if (category === "all" || category === itemCat) {
+          item.style.display = "block";
         } else {
-          item.classList.add("hide");
+          item.style.display = "none";
         }
       });
     });
   });
 
-  // ==========================================
-  // 2. HD LIGHTBOX MODAL & METADATA OVERLAY
-  // ==========================================
-  const openLightbox = (src, title, exif) => {
-    lightboxImg.src = src;
-    lightboxTitle.textContent = title || "Untitled Photograph";
-    lightboxExif.textContent = exif || "Medium Format Frame";
+  // Lightbox Functionality
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxTitle = document.getElementById("lightbox-title");
+  const lightboxClient = document.getElementById("lightbox-client");
+  const lightboxExif = document.getElementById("lightbox-exif");
+  const closeBtn = document.querySelector(".lightbox-close");
 
+  const openLightbox = (src, title, client, exif) => {
+    lightboxImg.src = src;
+    lightboxTitle.textContent = title || "Untitled Project";
+    lightboxClient.textContent = client ? `CLIENT // ${client.toUpperCase()}` : "";
+    lightboxExif.textContent = exif ? `EXIF // ${exif}` : "";
     lightbox.classList.add("active");
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden"; // Lock background scroll
+    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     lightbox.classList.remove("active");
-    lightbox.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = ""; // Restore background scroll
-
-    setTimeout(() => {
-      if (!lightbox.classList.contains("active")) {
-        lightboxImg.src = "";
-      }
-    }, 300);
+    document.body.style.overflow = "";
   };
 
-  // Attach Lightbox triggers to Grid items
-  galleryItems.forEach((item) => {
+  // Bind Lightbox to Masonry Items and Hero Frame
+  const clickableItems = document.querySelectorAll(".masonry-item, .featured-frame");
+  clickableItems.forEach((item) => {
     item.addEventListener("click", () => {
       const img = item.querySelector("img");
       const title = item.getAttribute("data-title");
+      const client = item.getAttribute("data-client");
       const exif = item.getAttribute("data-exif");
-      openLightbox(img.src, title, exif);
+      openLightbox(img.src, title, client, exif);
     });
   });
 
-  // Attach Lightbox triggers to Marquee Hero cards
-  heroCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      const img = card.querySelector("img");
-      const title = card.getAttribute("data-title");
-      const exif = card.getAttribute("data-exif");
-      openLightbox(img.src, title, exif);
-    });
-  });
-
-  // Event Listeners for closing modal
-  closeBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    closeLightbox();
-  });
-
+  closeBtn.addEventListener("click", closeLightbox);
   lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox || e.target.classList.contains("lightbox-stage")) {
-      closeLightbox();
-    }
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
   });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && lightbox.classList.contains("active")) {
-      closeLightbox();
-    }
+  // Form Handling
+  const form = document.getElementById("contactForm");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Thank you. Your inquiry has been submitted successfully.");
+    form.reset();
   });
 });
