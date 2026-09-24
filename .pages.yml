@@ -2,10 +2,9 @@ media: assets/pdf
 content:
   - name: html-files
     label: HTML Pages
-    folder: .
-    extensions: ["html"]
+    type: file
+    path: business/financial-services.html
     fields:
       - name: body
         label: Page Content
-        type: string
-        widget: text
+        type: code
