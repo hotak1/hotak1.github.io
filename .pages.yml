@@ -1,10 +1,11 @@
 media: assets/pdf
 content:
   - name: html-files
-    label: HTML Files
+    label: HTML Pages
     folder: .
-    extensions: [html]
+    extensions: ["html"]
     fields:
-      - name: content
-        label: Raw Code
-        type: code
+      - name: body
+        label: Page Content
+        type: string
+        widget: text
