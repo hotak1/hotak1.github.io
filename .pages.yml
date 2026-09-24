@@ -1,9 +1,19 @@
 media: assets/pdf
 content:
-  - name: "html-pages"
-    label: "HTML Pages"
-    path: "index.html"
+  - name: home-page
+    label: Home Page
+    type: file
+    path: index.html
     fields:
-      - name: "body"
-        label: "Page Content"
-        type: "text"
+      - name: body
+        label: Page Content
+        type: text
+
+  - name: financial-services
+    label: Financial Services
+    type: file
+    path: business/financial-services.html
+    fields:
+      - name: body
+        label: Page Content
+        type: text
