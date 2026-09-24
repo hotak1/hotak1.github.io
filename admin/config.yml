@@ -3,16 +3,20 @@ backend:
   repo: hotak1/hotak1.github.io
   branch: main
 
-media_folder: "assets/img" 
+media_folder: "assets/img"
 public_folder: "/assets/img"
 
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "financial_page"
+    label: "Financial Services"
     files:
       - file: "business/financial-services.html"
-        label: "Financial Services Page"
+        label: "Edit Financial Services"
         name: "financial_services"
         fields:
-          - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Main Content", name: "body", widget: "markdown" }
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Content"
+            name: "body"
+            widget: "markdown"
