@@ -1,5 +1,4 @@
-media: assets/pdf  # Folder where your uploaded PDFs will be saved
-
+media: assets/pdf
 content:
   - name: pages
     label: Website Pages
