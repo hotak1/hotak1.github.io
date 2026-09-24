@@ -2,8 +2,7 @@ media: assets/pdf
 content:
   - name: html-pages
     label: HTML Pages
-    type: collection
-    path: .
+    folder: content
     extensions: ["html"]
     fields:
       - name: body
