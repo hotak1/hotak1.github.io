@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: your-github-username/your-repo-name # Replace with your actual GitHub repo info
+  branch: main # Or master, depending on your default branch
+
+# Define where uploaded PDFs and media will be stored in your repo
+media_folder: "assets/img" # Change this to your preferred folder path (e.g., "pdfs")
+public_folder: "/assets/img"
+
+collections:
+  - name: "pages"
+  - label: "Pages"
+    files:
+      - file: "business/financial-services.html" # Point to the specific HTML page you want to edit
+        label: "Financial Services Page"
+        name: "financial_services"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Main Content / Table HTML", name: "body", widget: "markdown" }
