@@ -1,0 +1,14 @@
+media: assets/pdf  # Folder where your uploaded PDFs will be saved
+
+content:
+  - name: pages
+    label: Website Pages
+    folder: .
+    extensions: [html]
+    fields:
+      - name: title
+        label: Page Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
