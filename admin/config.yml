@@ -1,19 +1,18 @@
 backend:
   name: github
-  repo: your-github-username/your-repo-name # Replace with your actual GitHub repo info
-  branch: main # Or master, depending on your default branch
+  repo: hotak1/hotak1.github.io
+  branch: main
 
-# Define where uploaded PDFs and media will be stored in your repo
-media_folder: "assets/img" # Change this to your preferred folder path (e.g., "pdfs")
+media_folder: "assets/img" 
 public_folder: "/assets/img"
 
 collections:
   - name: "pages"
-  - label: "Pages"
+    label: "Pages"
     files:
-      - file: "business/financial-services.html" # Point to the specific HTML page you want to edit
+      - file: "business/financial-services.html"
         label: "Financial Services Page"
         name: "financial_services"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Main Content / Table HTML", name: "body", widget: "markdown" }
+          - { label: "Main Content", name: "body", widget: "markdown" }
