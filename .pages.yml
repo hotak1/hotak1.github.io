@@ -1,9 +1,9 @@
 media: assets/pdf
 content:
-  - name: html-pages
-    label: HTML Pages
-    path: index.html
+  - name: "html-pages"
+    label: "HTML Pages"
+    path: "index.html"
     fields:
-      - name: body
-        label: Page Content
-        type: text
+      - name: "body"
+        label: "Page Content"
+        type: "text"
