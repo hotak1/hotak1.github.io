@@ -5,15 +5,24 @@ content:
     type: file
     path: index.html
     fields:
-      - name: body
-        label: Page Content
+      - name: hero_title
+        label: Main Headline (H1)
+        type: string
+      - name: hero_subtitle
+        label: Subtitle Description
         type: text
+      - name: about_text
+        label: About Section Content
+        type: markdown
 
   - name: financial-services
     label: Financial Services
     type: file
     path: business/financial-services.html
     fields:
-      - name: body
-        label: Page Content
-        type: text
+      - name: page_title
+        label: Page Title
+        type: string
+      - name: content_body
+        label: Main Body Text
+        type: markdown
