@@ -2,6 +2,9 @@ backend:
   name: github
   repo: hotak1/hotak1.github.io
   branch: main
+  base_url: https://api.github.com
+  auth_type: implicit # Or use explicit OAuth client registration
+  app_id: YOUR_GITHUB_OAUTH_CLIENT_ID # (Requires setting up an OAuth App in your GitHub Developer Settings)
 
 media_folder: "assets/img"
 public_folder: "/assets/img"
