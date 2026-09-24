@@ -2,8 +2,7 @@ media: assets/pdf
 content:
   - name: html-pages
     label: HTML Pages
-    folder: content
-    extensions: ["html"]
+    path: index.html
     fields:
       - name: body
         label: Page Content
