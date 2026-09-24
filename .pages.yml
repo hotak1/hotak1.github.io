@@ -8,3 +8,4 @@ content:
       - name: body
         label: Page Content
         type: code
+        
